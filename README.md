@@ -1,2 +1,2 @@
 # eventbooking
-Django webapp which allows to submit required date to attend an event.
+Django webapp which allows you to submit required data to attend an event.
