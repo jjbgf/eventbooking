@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jjbgf/eventbooking.svg?branch=master)](https://travis-ci.org/jjbgf/eventbooking)
+
 # eventbooking
 Django webapp which allows you to submit required data to attend an event.
 
