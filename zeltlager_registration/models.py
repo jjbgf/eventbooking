@@ -8,6 +8,6 @@ class ZeltlagerDurchgang(models.Model):
 	lagerleiter = models.CharField(max_length=200)
 
 class Participant(models.Model):
-    name = models.CharField(max_length=200)
-    firstname = models.CharField(max_length=200)
-    zeltlager_durchgang = models.ForeignKey(ZeltlagerDurchgang)
+	name = models.CharField(max_length=200)
+	firstname = models.CharField(max_length=200)
+	zeltlager_durchgang = models.ForeignKey(ZeltlagerDurchgang)
