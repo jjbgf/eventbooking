@@ -6,7 +6,7 @@ python:
 env:
   - DJANGO=1.7.4
 
-before_intall:
+before_install:
   - cp settings_travis.py settings.py
 
 install:
