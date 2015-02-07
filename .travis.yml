@@ -5,11 +5,13 @@ python:
 
 env:
   - DJANGO=1.7.4
-  - DJANGO=1.4
+
+before_intall:
+  - cp settings_travis.py settings.py
 
 install:
   - pip install -q Django==$DJANGO
 
 script:
- # - python manage.py migrate
-  #- python manage.py test
+  - python manage.py migrate
+  - python manage.py test
