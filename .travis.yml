@@ -9,9 +9,7 @@ env:
 
 install:
   - pip install -q Django==$DJANGO
-  - pip install coveralls
 
 script:
-  - coverage run manage.py test
-after_success:
-  - coveralls
+  - manage.py migrate
+  - manage.py test
