@@ -11,5 +11,5 @@ install:
   - pip install -q Django==$DJANGO
 
 script:
-  - manage.py migrate
-  - manage.py test
+  - python manage.py migrate
+  - python manage.py test
