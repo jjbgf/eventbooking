@@ -10,6 +10,6 @@ env:
 install:
   - pip install -q Django==$DJANGO
 
-#script:
+script:
  # - python manage.py migrate
   #- python manage.py test
