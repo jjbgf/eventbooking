@@ -16,6 +16,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = r'3paz9=%%^wpwftb9n38!xe4dzjqzk-s4j&=xn2t%)z7m)%=z5!'
+
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -33,7 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'zeltlager_registration'
+    'zeltlager_registration',
+    'zeltlager_management'
 )
 
 MIDDLEWARE_CLASSES = (
