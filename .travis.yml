@@ -4,12 +4,9 @@ python:
   - "2.7"
 
 env:
-  - DJANGO=1.7.3
+  - DJANGO=1.7.4
   - DJANGO=1.4
 
 install:
-  - pip install -q Django==$DJANGO --use-mirrors
-  - pip install -q -e . --use-mirrors
-
-script:
-  - python setup.py test
+  - pip install -q Django==$DJANGO
+  - python setup.py -q install
