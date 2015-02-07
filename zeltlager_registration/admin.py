@@ -1,3 +1,5 @@
 from django.contrib import admin
+from zeltlager_registration.models import ZeltlagerDurchgang, Participant
 
-# Register your models here.
+admin.site.register(ZeltlagerDurchgang)
+admin.site.register(Participant)
