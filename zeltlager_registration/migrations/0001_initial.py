@@ -11,6 +11,34 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
+            name='Address',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('street', models.CharField(max_length=200)),
+                ('street_additional', models.CharField(max_length=10)),
+                ('street_number', models.PositiveIntegerField()),
+                ('postcode', models.PositiveIntegerField()),
+                ('city', models.CharField(max_length=200)),
+                ('bundesland', models.CharField(max_length=200)),
+                ('country', models.CharField(max_length=200)),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Jugendgruppe',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('name', models.CharField(max_length=200)),
+                ('description', models.CharField(max_length=500)),
+                ('address', models.ForeignKey(default=None, blank=True, to='zeltlager_registration.Address')),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
             name='Participant',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
@@ -18,10 +46,6 @@ class Migration(migrations.Migration):
                 ('firstname', models.CharField(max_length=200)),
                 ('phone_number', models.CharField(max_length=200, blank=True)),
                 ('mobile_number', models.CharField(max_length=200, blank=True)),
-                ('street', models.CharField(max_length=200)),
-                ('plz', models.PositiveIntegerField()),
-                ('place', models.CharField(max_length=200)),
-                ('bundesland', models.CharField(max_length=200)),
                 ('jugendgruppe', models.CharField(max_length=200, blank=True)),
                 ('mail', models.EmailField(max_length=254, blank=True)),
                 ('job', models.CharField(max_length=200, blank=True)),
@@ -51,6 +75,7 @@ class Migration(migrations.Migration):
                 ('activities_i_liked', models.TextField(blank=True)),
                 ('things_i_can_provide', models.TextField(blank=True)),
                 ('arrival_by', models.CharField(max_length=200)),
+                ('address', models.ForeignKey(default=None, blank=True, to='zeltlager_registration.Address')),
             ],
             options={
             },
@@ -59,17 +84,15 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='ZeltlagerDurchgang',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('number', models.IntegerField()),
+                ('number', models.IntegerField(serialize=False, primary_key=True)),
                 ('place', models.CharField(max_length=200)),
                 ('start', models.DateTimeField()),
                 ('end', models.DateTimeField()),
                 ('capacity', models.IntegerField()),
                 ('name', models.CharField(max_length=200)),
-                ('address', models.CharField(max_length=200)),
-                ('location', models.CharField(max_length=200)),
                 ('description', models.CharField(max_length=500)),
                 ('lagerleiter', models.CharField(max_length=200)),
+                ('address', models.ForeignKey(default=None, blank=True, to='zeltlager_registration.Address')),
             ],
             options={
             },
@@ -84,7 +107,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='participant',
             name='zeltlager_durchgang',
-            field=models.ForeignKey(to='zeltlager_registration.ZeltlagerDurchgang'),
+            field=models.ForeignKey(default=None, blank=True, to='zeltlager_registration.ZeltlagerDurchgang', null=True),
             preserve_default=True,
         ),
     ]

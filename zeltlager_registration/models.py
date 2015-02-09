@@ -1,29 +1,38 @@
 from django.db import models
 
+    
+class Address (models.Model):
+    street = models.CharField(max_length=200)
+    street_additional = models.CharField(max_length=10)
+    street_number = models.PositiveIntegerField()
+    postcode = models.PositiveIntegerField()
+    city = models.CharField(max_length=200)
+    bundesland = models.CharField(max_length=200)
+    country = models.CharField(max_length=200)
+    
+class Jugendgruppe(models.Model):
+    name = models.CharField(max_length=200)
+    address = models.ForeignKey(Address, blank=True, default=None)
+    description = models.CharField(max_length=500)
+
 class ZeltlagerDurchgang(models.Model):
-    number = models.IntegerField()
+    number = models.IntegerField(primary_key=True)
     place = models.CharField(max_length=200)
     start = models.DateTimeField()
     end = models.DateTimeField()
     capacity = models.IntegerField()
     name = models.CharField(max_length=200)
-    # TODO: put address in extra model
-    address = models.CharField(max_length=200)
-    location = models.CharField(max_length=200)
+    address = models.ForeignKey(Address, blank=True, default=None)
     description = models.CharField(max_length=500)
     lagerleiter = models.CharField(max_length=200)
-    
 
 class Participant(models.Model):
     name = models.CharField(max_length=200)
     firstname = models.CharField(max_length=200)
-    zeltlager_durchgang = models.ForeignKey(ZeltlagerDurchgang)
+    zeltlager_durchgang = models.ForeignKey(ZeltlagerDurchgang, blank=True, default=None, null=True)
+    address = models.ForeignKey(Address, blank=True, default=None)
     phone_number = models.CharField(max_length=200, blank=True)
     mobile_number = models.CharField(max_length=200, blank=True)
-    street = models.CharField(max_length=200)
-    plz = models.PositiveIntegerField()
-    place = models.CharField(max_length=200)
-    bundesland = models.CharField(max_length=200)
     jugendgruppe = models.CharField(max_length=200, blank=True)
     mail = models.EmailField(max_length=254, blank=True)
     job = models.CharField(max_length=200, blank=True)
@@ -54,3 +63,4 @@ class Participant(models.Model):
     activities_i_liked = models.TextField(blank=True)
     things_i_can_provide = models.TextField(blank=True)
     arrival_by = models.CharField(max_length=200)
+

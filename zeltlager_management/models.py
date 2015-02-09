@@ -1,5 +1,5 @@
 from django.db import models
-from zeltlager_registration.models import Participant
+from zeltlager_registration.models import Participant, ZeltlagerDurchgang
 
 # Create your models here.
 
@@ -54,7 +54,8 @@ function = enum(Jugendleiter = 'Jugendleiter', Prediger = 'Prediger', Hauptjugen
 
 class Booking(models.Model):
     number = models.IntegerField()
-    participant = models.ForeignKey(Participant)
+    participant = models.ForeignKey(Participant, blank=True, default=None)
+    event = models.ForeignKey(ZeltlagerDurchgang, blank=True, default=None)
     arrival = models.DateTimeField()
     departure = models.DateTimeField()
     comment = models.CharField(max_length=500, blank=True)
