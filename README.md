@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/jjbgf/eventbooking.svg?branch=master)](https://travis-ci.org/jjbgf/eventbooking)
 
 # eventbooking
-Django webapp which allows you to submit required data to attend an event.
+Django webapp which allows users to subscribe to an event.
 
 ## Python installation
 https://www.python.org/downloads/release/python-279/
@@ -10,3 +10,7 @@ https://www.python.org/downloads/release/python-279/
 
 ## Django Documentation
 https://docs.djangoproject.com/en/1.7/
+
+## Philosophy
+https://docs.djangoproject.com/en/1.7/misc/design-philosophies/
+http://dirtsimple.org/2004/12/python-is-not-java.html
