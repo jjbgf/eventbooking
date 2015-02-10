@@ -13,4 +13,7 @@ https://docs.djangoproject.com/en/1.7/
 
 ## Philosophy
 https://docs.djangoproject.com/en/1.7/misc/design-philosophies/
-http://dirtsimple.org/2004/12/python-is-not-java.html
+
+## Good to know
+* http://dirtsimple.org/2004/12/python-is-not-java.html
+* https://djangosnippets.org/
