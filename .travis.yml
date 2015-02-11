@@ -23,3 +23,5 @@ deploy:
   app: immense-thicket-8904
   on:
     repo: jjbgf/eventbooking
+  run:
+    - cp eventbooking/settings_travis.py eventbooking/settings.py
