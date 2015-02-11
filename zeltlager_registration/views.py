@@ -1,5 +1,7 @@
+# -*- coding: utf-8 -*-
+
 from django.shortcuts import render
-from django.http import HttpResponseRedirect, HttpResponseNotAllowed, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse
 import logging
 from zeltlager_registration.forms import  ParticipantForm, RegisterFormSet
 from zeltlager_registration.models import ZeltlagerDurchgang, Participant
@@ -17,16 +19,14 @@ def index(request):
 @require_http_methods(["POST"])
 def save(request):
     
-    # if this is a POST request we need to process the form data
-    if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
-        form = ParticipantForm(request.POST)
-        # check whether it's valid:
-        logger.debug(form.is_valid())
+    # create a form instance and populate it with data from the request:
+    form = ParticipantForm(request.POST)
+    # check whether it's valid:
+    logger.debug(form.is_valid())
         
-        if form.is_valid():
-            participant = form.save(commit=False)
-            #participant_formset = RegisterFormSet(request.POST, instance=participant)
+    if form.is_valid():
+        participant = form.save(commit=False)
+        #participant_formset = RegisterFormSet(request.POST, instance=participant)
             
 #             if participant_formset.is_valid():
 #                 participant.save()
@@ -42,12 +42,8 @@ def save(request):
             # process the data in form.cleaned_data as required
             # ...
             # redirect to a new URL:
-            return HttpResponseRedirect('zeltlager_registration/thanks.html')
+        return HttpResponseRedirect('zeltlager_registration/thanks.html')
 
-    # if a GET (or any other method)
-    else:
-        return HttpResponseNotAllowed("Not allowed")
-    
     return HttpResponse("saved")
 
 @require_http_methods(["GET"])
