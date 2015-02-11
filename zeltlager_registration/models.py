@@ -9,11 +9,6 @@ class Address (models.Model):
     city = models.CharField(max_length=200)
     bundesland = models.CharField(max_length=200)
     country = models.CharField(max_length=200)
-    
-class Jugendgruppe(models.Model):
-    name = models.CharField(max_length=200)
-    address = models.ForeignKey(Address, blank=True, default=None)
-    description = models.CharField(max_length=500)
 
 class ZeltlagerDurchgang(models.Model):
     number = models.IntegerField(primary_key=True)
@@ -21,10 +16,10 @@ class ZeltlagerDurchgang(models.Model):
     start = models.DateTimeField()
     end = models.DateTimeField()
     capacity = models.IntegerField()
-    name = models.CharField(max_length=200)
-    address = models.ForeignKey(Address, blank=True, default=None)
-    description = models.CharField(max_length=500)
     lagerleiter = models.CharField(max_length=200)
+
+    def __unicode__(self):
+        return str(self.number) + u". " + self.place
 
 class Participant(models.Model):
     name = models.CharField(max_length=200)
@@ -64,3 +59,5 @@ class Participant(models.Model):
     things_i_can_provide = models.TextField(blank=True)
     arrival_by = models.CharField(max_length=200)
 
+    def __unicode__(self):
+        return self.firstname + u" " + self.name

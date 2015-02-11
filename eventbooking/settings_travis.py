@@ -38,7 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'zeltlager_registration',
-    'zeltlager_management'
+    'zeltlager_management',
+    'bootstrap3'
 )
 
 MIDDLEWARE_CLASSES = (
