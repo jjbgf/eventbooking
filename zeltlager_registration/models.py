@@ -3,12 +3,17 @@ from django.db import models
     
 class Address (models.Model):
     street = models.CharField(max_length=200)
-    street_additional = models.CharField(max_length=10)
+    street_additional = models.CharField(max_length=10, blank=True)
     street_number = models.PositiveIntegerField()
     postcode = models.PositiveIntegerField()
     city = models.CharField(max_length=200)
     bundesland = models.CharField(max_length=200)
     country = models.CharField(max_length=200)
+    
+class Jugendgruppe(models.Model):
+    name = models.CharField(max_length=200)
+    address = models.ForeignKey(Address, blank=True, default=None)
+    description = models.CharField(max_length=500)
 
 class ZeltlagerDurchgang(models.Model):
     number = models.IntegerField(primary_key=True)

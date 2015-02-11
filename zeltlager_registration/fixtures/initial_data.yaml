@@ -1,0 +1,288 @@
+# superuser
+
+- model: auth.user
+  pk: 3
+  fields:
+    email: ''
+    first_name: 'admin'
+    groups: []
+    is_active: true
+    is_staff: true
+    is_superuser: true
+    last_name: 'admin'
+    password: pbkdf2_sha256$15000$dlbxEfhJOCaD$AF9WOks+1pqZ1RNLDCLQj1t4UnUinhwUcqb5kRFQJNM= #admin
+    user_permissions: []
+    username: admin
+
+# jeweilige adressen und jugendgruppen    
+
+- fields: {bundesland: Baden-Württemberg, city: Tiengen, country: Deutschland, postcode: 79761,
+    street: Hauptstraße, street_additional: '', street_number: 16}
+  model: zeltlager_registration.address
+  pk: 1
+  
+- fields: {address: 1, description: "In der Gemeinde Baden-Baden finden zur Zeit unregelm\xE4\
+      \xDFig Jugendstunden statt, die von Dorothee Hupfer betreut werden.", name: Baden-Baden}
+  model: zeltlager_registration.jugendgruppe
+  pk: 1
+  
+  
+- fields: {bundesland: Berlin, city: Berlin, country: Deutschland, postcode: 12621,
+    street: Dorfstraße, street_additional: '', street_number: 2}
+  model: zeltlager_registration.address
+  pk: 2
+  
+- fields: {address: 2, description: "Termine: 14-tägig sonntags, ca. 11 Uhr.", name: Berlin-Kaulsdorf}
+  model: zeltlager_registration.jugendgruppe
+  pk: 2
+  
+  
+- fields: {bundesland: Berlin, city: Berlin, country: Deutschland, postcode: 14193,
+    street: Bismarckallee, street_additional: '', street_number: 23}
+  model: zeltlager_registration.address
+  pk: 3
+  
+- fields: {address: 3, description: "14-tägig, Samstag 16 Uhr im Wechsel mit Sonntag nach dem Gottesdienst", name: Berlin-SMH}
+  model: zeltlager_registration.jugendgruppe
+  pk: 3
+  
+  
+- fields: {bundesland: Bremen, city: Bremen, country: Deutschland, postcode: 28219,
+    street: Fleetstraße, street_additional: '', street_number: 37}
+  model: zeltlager_registration.address
+  pk: 4
+  
+- fields: {address: 4, description: "Termin: 1x monatlich", name: Bremen}
+  model: zeltlager_registration.jugendgruppe
+  pk: 4
+  
+  
+- fields: {bundesland: Nordrhein-Westfalen, city: Hamm, country: Deutschland, postcode: 59077,
+    street: Beverkramenstraße, street_additional: '', street_number: 17}
+  model: zeltlager_registration.address
+  pk: 5
+  
+- fields: {address: 5, description: "In der Gemeinde Dortmund finden zur Zeit keine Jugendgruppen statt.", name: Dortmund}
+  model: zeltlager_registration.jugendgruppe
+  pk: 5
+  
+  
+- fields: {bundesland: Sachsen, city: Dresden, country: Deutschland, postcode: 01326,
+    street: Tiedgestraße, street_additional: '', street_number: 1}
+  model: zeltlager_registration.address
+  pk: 6
+  
+- fields: {address: 6, description: "Termin: 1x monatlich", name: Dresden}
+  model: zeltlager_registration.jugendgruppe
+  pk: 6
+  
+  
+- fields: {bundesland: Nordrhein-Westfalen, city: Kaarst-Holzbüttgen, country: Deutschland, postcode: 41564,
+    street: Bruchweg, street_additional: '', street_number: 126}
+  model: zeltlager_registration.address
+  pk: 7
+  
+- fields: {address: 7, description: "Termin: 1x monatlich", name: Düsseldorf}
+  model: zeltlager_registration.jugendgruppe
+  pk: 7
+  
+  
+- fields: {bundesland: Brandenburg, city: Frankfurt Oder, country: Deutschland, postcode: 15234,
+    street: Fürstenwalder Poststraße, street_additional: '', street_number: 180}
+  model: zeltlager_registration.address
+  pk: 8
+  
+- fields: {address: 8, description: "In der Gemeinde Frankfurt (Oder) finden zur Zeit keine eigenen Jugendgruppen statt. Die Jugendlichen werden von der Gemeinde Berlin-Kaulsdorf mit betreut.", name: Frankfurt Oder}
+  model: zeltlager_registration.jugendgruppe
+  pk: 8
+  
+  
+- fields: {bundesland: Brandenburg, city: Fürstenwalde, country: Deutschland, postcode: 15517,
+    street: Lindenstraße, street_additional: '', street_number: 15}
+  model: zeltlager_registration.address
+  pk: 9
+  
+- fields: {address: 9, description: "In der Gemeinde Frankfurt (Oder) finden zur Zeit keine eigenen Jugendgruppen statt. Die Jugendlichen werden von der Gemeinde Berlin-Kaulsdorf mit betreut.", name: Fürstenwalde}
+  model: zeltlager_registration.jugendgruppe
+  pk: 9
+  
+    
+- fields: {bundesland: Brandenburg, city: Waischenfeld, country: Deutschland, postcode: 91344,
+    street: Gut Schönhof, street_additional: 'Eichenb', street_number: 11}
+  model: zeltlager_registration.address
+  pk: 10
+  
+- fields: {address: 10, description: "-", name: Gößweinstein}
+  model: zeltlager_registration.jugendgruppe
+  pk: 10
+  
+  
+- fields: {bundesland: -, city: Hrodna, country: Weißrussland, postcode: 00000,
+    street: -, street_additional: '', street_number: 0}
+  model: zeltlager_registration.address
+  pk: 11
+  
+- fields: {address: 11, description: "-", name: Grodno}
+  model: zeltlager_registration.jugendgruppe
+  pk: 11
+  
+  
+- fields: {bundesland: Mecklenburg-Vorpommern, city: Güstrow, country: Deutschland, postcode: 18273,
+    street: Weinbergstraße, street_additional: '', street_number: 28}
+  model: zeltlager_registration.address
+  pk: 12
+  
+- fields: {address: 12, description: "-", name: Güstrow}
+  model: zeltlager_registration.jugendgruppe
+  pk: 12
+  
+
+- fields: {bundesland: Hamburg, city: Hamburg, country: Deutschland, postcode: 22926,
+    street: Schimmelmannstraße, street_additional: '', street_number: 61}
+  model: zeltlager_registration.address
+  pk: 13
+  
+- fields: {address: 13, description: "Termin: 1x monatlich, Sa. oder So.", name: Hamburg}
+  model: zeltlager_registration.jugendgruppe
+  pk: 13
+  
+  
+- fields: {bundesland: Niedersachsen, city: Hannover, country: Deutschland, postcode: 30451,
+    street: Windheimstraße, street_additional: '', street_number: 4}
+  model: zeltlager_registration.address
+  pk: 14
+  
+- fields: {address: 14, description: "Termin: 1x monatlich, So.", name: Hannover}
+  model: zeltlager_registration.jugendgruppe
+  pk: 14
+  
+  
+- fields: {bundesland: Sachsen-Anhalt, city: Wegeleben, country: Deutschland, postcode: 38805,
+    street: Kirchhof, street_additional: '', street_number: 3}
+  model: zeltlager_registration.address
+  pk: 15
+  
+- fields: {address: 15, description: "Termin: 1x monatlich", name: Harz}
+  model: zeltlager_registration.jugendgruppe
+  pk: 15
+  
+
+- fields: {bundesland: Sachsen-Anhalt, city: Jena, country: Deutschland, postcode: 07749,
+    street: Ernst-Schneller-Straße, street_additional: '', street_number: 10}
+  model: zeltlager_registration.address
+  pk: 16
+  
+- fields: {address: 16, description: "Termin: 1x monatlich", name: Jena}
+  model: zeltlager_registration.jugendgruppe
+  pk: 16
+  
+  
+- fields: {address: 3, description: "Hey liebe Leser!
+Wir sind eine von zwei Jugendgemeinschaften in der Johannischen Jugend. Im Gegensatz zur Jugendgruppe sind in unserer Gemeinschaft nur Konfirmanden, im Alter von 12 – 14 Jahren. Wir treffen uns jeden 2. Sonntag nach dem Kindergottesdienst für ca. 2 Stunden im Jugendraum des SMH.", name: Jugendgemeinschaft SMH}
+  model: zeltlager_registration.jugendgruppe
+  pk: 17
+  
+
+- fields: {bundesland: Brandenburg, city: Glau, country: Deutschland, postcode: 14959,
+    street: Birkenstraße, street_additional: '', street_number: 0}
+  model: zeltlager_registration.address
+  pk: 17
+  
+- fields: {address: 17, description: "-", name: Jugendgemeinschaft Urgemeinde}
+  model: zeltlager_registration.jugendgruppe
+  pk: 18
+  
+  
+- fields: {bundesland: Brandenburg, city: Forst, country: Deutschland, postcode: 03149,
+    street: Spremberger Straße, street_additional: '', street_number: 52}
+  model: zeltlager_registration.address
+  pk: 18
+  
+- fields: {address: 18, description: "Termin: 1x monatlich So. nach dem Gottesdienst, 15 Uhr", name: Lausitz}
+  model: zeltlager_registration.jugendgruppe
+  pk: 19
+  
+
+- fields: {bundesland: Sachsen, city: Leipzig, country: Deutschland, postcode: 04425,
+    street: Kirchstraße, street_additional: '', street_number: 1}
+  model: zeltlager_registration.address
+  pk: 19
+  
+- fields: {address: 19, description: "Termin:  alle 4 Wochen, Sa oder So, 15 Uhr", name: Leipzig}
+  model: zeltlager_registration.jugendgruppe
+  pk: 20
+  
+
+- fields: {bundesland: Mecklenburg-Vorpommern, city: Lübs, country: Deutschland, postcode: 17379,
+    street: Dorfstraße, street_additional: '', street_number: 45}
+  model: zeltlager_registration.address
+  pk: 20
+  
+- fields: {address: 20, description: "In der Gemeinde Pasewalk finden zur Zeit keine Jugendgruppen statt.", name: Pasewalk}
+  model: zeltlager_registration.jugendgruppe
+  pk: 21
+  
+
+- fields: {bundesland: Mecklenburg-Vorpommern, city: Potsdam, country: Deutschland, postcode: 14478,
+    street: Milanhorst, street_additional: '', street_number: 9}
+  model: zeltlager_registration.address
+  pk: 21
+  
+- fields: {address: 21, description: "In der Gemeinde Potsdam finden zur Zeit keine eigenen Jugendgruppen statt. Die Jugendlichen sind in die Jugendgruppen Urgemeinde oder Berlin-SMH integriert.", name: Potsdam}
+  model: zeltlager_registration.jugendgruppe
+  pk: 22
+  
+
+- fields: {bundesland: Brandenburg, city: Schwedt, country: Deutschland, postcode: 16303,
+    street: Vierradener Straße, street_additional: '', street_number: 42}
+  model: zeltlager_registration.address
+  pk: 22
+  
+- fields: {address: 22, description: "In den Gemeinden Schwedt und Angermünde finden zur Zeit keine eigenen Jugendgruppen statt. Die Jugendlichen werden von der Jugendgruppe Berlin-Kaulsdorf mit betreut.", name: Schwedt / Angermünde}
+  model: zeltlager_registration.jugendgruppe
+  pk: 23
+  
+
+- fields: {bundesland: Baden-Württemberg, city: Mühlacker, country: Deutschland, postcode: 75417,
+    street: Philipp-Bauer-Weg, street_additional: '', street_number: 2}
+  model: zeltlager_registration.address
+  pk: 23
+  
+- fields: {address: 23, description: "Termin: 1x monatlich, Sonntag nach dem Gemeindegottesdienst.", name: Stuttgart}
+  model: zeltlager_registration.jugendgruppe
+  pk: 24
+  
+
+- fields: {address: 17, description: "Hallo liebe Besucherin, lieber Besucher, liebe Teilnehmerin, lieber Teilnehmer unserer Jugendgruppe der Urgemeinde in der Friedensstadt, herzlich Willkommen auf unserer Internetseite!", name: Urgemeinde Friedensstadt}
+  model: zeltlager_registration.jugendgruppe
+  pk: 25
+  
+  
+- fields: {bundesland: Brandenburg, city: Velten, country: Deutschland, postcode: 16727,
+    street: Breite Straße, street_additional: '', street_number: 90}
+  model: zeltlager_registration.address
+  pk: 24
+
+- fields: {address: 24, description: "Termin: 14-tägig, So. nach dem Gottesdienst.", name: Velten}
+  model: zeltlager_registration.jugendgruppe
+  pk: 26
+  
+  
+- fields: {bundesland: Hessen, city: Frankfurt Main, country: Deutschland, postcode: 60486,
+    street: Schwälmer Straße , street_additional: '', street_number: 20}
+  model: zeltlager_registration.address
+  pk: 25
+
+- fields: {address: 25, description: "In der Gemeinde Wiesbaden finden zur Zeit keine eigenen Jugendgruppen statt.", name: Wiesbaden}
+  model: zeltlager_registration.jugendgruppe
+  pk: 27
+  
+  
+- fields: {bundesland: Sachsen, city: Elster, country: Deutschland, postcode: 06918,
+    street: Oststraße , street_additional: '', street_number: 9}
+  model: zeltlager_registration.address
+  pk: 26
+
+- fields: {address: 26, description: "-", name: Witenberg - Elster}
+  model: zeltlager_registration.jugendgruppe
+  pk: 28
