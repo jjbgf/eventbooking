@@ -24,4 +24,8 @@ deploy:
   on:
     repo: jjbgf/eventbooking
   run:
+    - ls
+    - echo "***"
+    - ls eventbooking
     - cp eventbooking/settings_travis.py eventbooking/settings.py
+    - ls eventbooking
