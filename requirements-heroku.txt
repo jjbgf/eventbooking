@@ -1,0 +1,6 @@
+dj-database-url
+dj-static
+django-toolbelt
+gunicorn
+static3
+wsgiref
