@@ -1,8 +1,6 @@
 from django.db import models
 from zeltlager_registration.models import Participant, ZeltlagerDurchgang
 
-# Create your models here.
-
 #define enum in python 2.7
 def enum(**enums):
     return type('Enum', (), enums)
@@ -18,36 +16,6 @@ transportation = enum(KFZ_Eigen = 'KFZ_Eigen',
     keine = 'keine')
 
 gender = enum(WOMAN = 0, MAN = 1)
-
-# TODO: Insert is as initial content to db
-youthgroup = enum(BadenBaden = 'BadenBaden',
-    BerlinKaulsdorf = 'BerlinKaulsdorf',
-    BerlinSMH = 'BerlinSMH',
-    BREMEN = 'BREMEN',
-    Dortmund = 'Dortmund',
-    Dresden = 'Dresden',
-    Duesseldorf = 'Duesseldorf',
-    FrankfurtOder = 'FrankfurtOder',
-    Fuerstenwalde = 'Fuerstenwalde',
-    Goessweinstein = 'Goessweinstein',
-    Grodno = 'Grodno',
-    Guestrow = 'Guestrow',
-    Hamburg = 'Hamburg',
-    Hannover = 'Hannover',
-    Harz = 'Harz',
-    Jena = 'Jena',
-    JugendgemeinschaftSMH = 'JugendgemeinschaftSMH',
-    JugendgemeinschaftUrgemeinde = 'JugendgemeinschaftUrgemeinde',
-    Lausitz = 'Lausitz',
-    Leipzig = 'Leipzig',
-    Pasewalk = 'Pasewalk',
-    Potsdam = 'Potsdam',
-    SchwedtAngermuende = 'SchwedtAngermuende',
-    Stuttgart = 'Stuttgart',
-    UrgemeindeFriedensstadt = 'UrgemeindeFriedensstadt',
-    Velten = 'Velten',
-    Wiesbaden = 'Wiesbaden',
-    WittenbergElster = 'WittenbergElster')
 
 function = enum(Jugendleiter = 'Jugendleiter', Prediger = 'Prediger', Hauptjugendleiter = 'Hauptjugendleiter')
     

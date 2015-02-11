@@ -3,7 +3,7 @@ from django.db import models
     
 class Address (models.Model):
     street = models.CharField(max_length=200)
-    street_additional = models.CharField(max_length=10)
+    street_additional = models.CharField(max_length=10, blank=True)
     street_number = models.PositiveIntegerField()
     postcode = models.PositiveIntegerField()
     city = models.CharField(max_length=200)
