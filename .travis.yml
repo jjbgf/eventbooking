@@ -1,7 +1,7 @@
 language: python
 
 python:
-  - "2.7"
+  - '2.7'
 
 env:
   - DJANGO=1.7.4
@@ -16,3 +16,11 @@ install:
 script:
   - python manage.py migrate
   - python manage.py test
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: PQGrPrPrtW70G8o80tWVOVlUKbC7+3C0xEoLO9hzBmNYcVTNVI72E42AEVXpvCBrNzga5nH3NHQVp59muy6S1JDokp4mrmQ/R5GxfiSiLdJ0ERYsndL+D4nA0ke0DCQOjSnhdSLjsr07GJDaJgP+jew7OdtiZb0ln0h5FK24Q6k=
+  app: immense-thicket-8904
+  on:
+    repo: jjbgf/eventbooking
