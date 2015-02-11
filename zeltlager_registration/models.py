@@ -9,6 +9,11 @@ class Address (models.Model):
     city = models.CharField(max_length=200)
     bundesland = models.CharField(max_length=200)
     country = models.CharField(max_length=200)
+    
+class Jugendgruppe(models.Model):
+    name = models.CharField(max_length=200)
+    address = models.ForeignKey(Address, blank=True, default=None)
+    description = models.CharField(max_length=500)
 
 class ZeltlagerDurchgang(models.Model):
     number = models.IntegerField(primary_key=True)
