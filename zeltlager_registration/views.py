@@ -4,14 +4,17 @@ import logging
 from zeltlager_registration.forms import  ParticipantForm, RegisterFormSet
 from zeltlager_registration.models import ZeltlagerDurchgang, Participant
 from django.forms.models import inlineformset_factory
+from django.views.decorators.http import require_http_methods
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
 
+@require_http_methods(["GET"])
 def index(request):
     context = {'greeting': 'Hello, world. You\'re at the zeltlager registration index.'}
     return render(request, 'zeltlager_registration/index.html', context)
 
+@require_http_methods(["POST"])
 def save(request):
     
     # if this is a POST request we need to process the form data
@@ -47,6 +50,7 @@ def save(request):
     
     return HttpResponse("saved")
 
+@require_http_methods(["GET"])
 def register (request):
     context = {'formset' : RegisterFormSet()}
     return render(request, 'zeltlager_registration/register.html', context)
