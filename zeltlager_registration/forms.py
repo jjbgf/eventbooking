@@ -9,7 +9,7 @@ from django import forms
 from django.forms.models import inlineformset_factory
 from zeltlager_registration.models import Participant, Address, Jugendgruppe
 import datetime
-from localflavor.de.forms import *
+from localflavor.de.forms import DEZipCodeField
 
 #class RegisterForm(ModelForm):
     
@@ -23,12 +23,12 @@ class ParticipantForm(ModelForm):
         self.fields['mail'] = forms.EmailField()
         self.fields['birth_date'] = forms.DateField(required=True, initial=datetime.date.today)
         self.fields['birth_place'] = forms.DateField(required=True, initial=datetime.date.today)
-        #self.fields['bundesland'] = DEStateSelect()
         self.fields['postcode'] = DEZipCodeField()
                
     class Meta:
         model = Participant
-        #exclude = ('zeltlager_durchgang',)
+        exclude = ('zeltlager_durchgang',)
+        fiels = []
         #fields = ['firstname', 'name', 'jugendgruppe', 'mail', 'job', 'birth_date', 'birth_place', 'vegetarian', 'gender']
     
     
