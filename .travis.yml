@@ -13,8 +13,8 @@ install:
   - pip install -r requirements/requirements-base.txt
 
 script:
-  - python manage.py loaddata initial_data.yaml
   - python manage.py migrate
+  - python manage.py loaddata initial_data.yaml
   - python manage.py test
 
 deploy:
