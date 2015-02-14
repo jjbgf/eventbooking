@@ -48,7 +48,8 @@ def save(request):
 
 @require_http_methods(["GET"])
 def register (request):
-    context = {'formset' : RegisterFormSet()}
+    context = {'form' : ParticipantForm()}
+    #context = {'formset' : RegisterFormSet()}
     return render(request, 'zeltlager_registration/register.html', context)
 #     return render(request, 'zeltlager_registration/register.html')
     

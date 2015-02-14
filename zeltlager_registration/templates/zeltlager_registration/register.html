@@ -18,7 +18,7 @@
 <form action="{% url 'save' %}" method="post" class="form">
   {% csrf_token %}
 
-  {% bootstrap_formset formset layout='horizontal' %}
+  {% bootstrap_form form layout='horizontal' %}
   {% buttons %}
     <button type="submit" class="btn btn-primary">
       {% bootstrap_icon "save" %} Absenden

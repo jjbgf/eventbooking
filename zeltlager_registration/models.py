@@ -1,19 +1,39 @@
+# -*- coding: utf-8 -*-
 from django.db import models
+from django.utils.encoding import smart_unicode
+from localflavor.de.de_states import STATE_CHOICES
 
-    
+GENDER_CHOICES = (('0', 'weiblich'), ('1', 'männlich'))
+
 class Address (models.Model):
     street = models.CharField(max_length=200)
     street_additional = models.CharField(max_length=10, blank=True)
     street_number = models.PositiveIntegerField()
     postcode = models.PositiveIntegerField()
     city = models.CharField(max_length=200)
-    bundesland = models.CharField(max_length=200)
+    bundesland = models.CharField(max_length=100, choices=STATE_CHOICES)
     country = models.CharField(max_length=200)
+    
+    class Meta:
+        app_label = 'zeltlager_registration'
+        verbose_name = 'Adresse'
+        verbose_name_plural = 'Adressen'
+        
+    def __unicode__(self):
+        return smart_unicode(self.street + ", " + str(self.street_number) + ", "+ str(self.postcode) +", "+ self.city)
     
 class Jugendgruppe(models.Model):
     name = models.CharField(max_length=200)
     address = models.ForeignKey(Address, blank=True, default=None)
     description = models.CharField(max_length=500)
+    
+    def __unicode__(self):
+        return smart_unicode(self.name)
+    
+    class Meta:
+        app_label = 'zeltlager_registration'
+        verbose_name = 'Jugendgruppe'
+        verbose_name_plural = 'Jugendgruppen'
 
 class ZeltlagerDurchgang(models.Model):
     number = models.IntegerField(primary_key=True)
@@ -22,9 +42,14 @@ class ZeltlagerDurchgang(models.Model):
     end = models.DateTimeField()
     capacity = models.IntegerField()
     lagerleiter = models.CharField(max_length=200)
+    
+    class Meta:
+        app_label = 'zeltlager_registration'
+        verbose_name = 'Zeltlagerdurchgang'
+        verbose_name_plural = 'Zeltlagerdurchgänge'
 
     def __unicode__(self):
-        return str(self.number) + u". " + self.place
+        return smart_unicode(str(self.number)) + ". " + self.place
 
 class Participant(models.Model):
     name = models.CharField(max_length=200)
@@ -33,6 +58,7 @@ class Participant(models.Model):
     address = models.ForeignKey(Address, blank=True, default=None)
     phone_number = models.CharField(max_length=200, blank=True)
     mobile_number = models.CharField(max_length=200, blank=True)
+    gender = models.CharField(max_length=10, choices=GENDER_CHOICES)
     jugendgruppe = models.CharField(max_length=200, blank=True)
     mail = models.EmailField(max_length=254, blank=True)
     job = models.CharField(max_length=200, blank=True)
@@ -63,6 +89,11 @@ class Participant(models.Model):
     activities_i_liked = models.TextField(blank=True)
     things_i_can_provide = models.TextField(blank=True)
     arrival_by = models.CharField(max_length=200)
+    
+    class Meta:
+        app_label = 'zeltlager_registration'
+        verbose_name = 'Teilnehmer'
+        verbose_name_plural = 'Teilnehmer'
 
     def __unicode__(self):
-        return self.firstname + u" " + self.name
+        return smart_unicode(self.firstname + ", " + self.name)

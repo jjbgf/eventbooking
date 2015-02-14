@@ -1,23 +1,25 @@
+# -*- coding: utf-8 -*-
 from django.db import models
-from zeltlager_registration.models import Participant, ZeltlagerDurchgang
+from django.utils.encoding import smart_unicode
+from zeltlager_registration.models import Participant
+from zeltlager_registration.models import ZeltlagerDurchgang
 
 #define enum in python 2.7
-def enum(**enums):
-    return type('Enum', (), enums)
+#def enum(**enums):
+#    return type('Enum', (), enums)
 
-transportation = enum(KFZ_Eigen = 'KFZ_Eigen',
-    KFZ_mitfahrt = 'KFZ_mitfahrt',
-    BusSMH = 'BusSMH',
-    BusFS = 'BusFS',
-    Bahn = 'Bahn',
-    Flugzeug = 'Flugzeug',
-    zuFuss = 'zuFuss',
-    andere = 'andere',
-    keine = 'keine')
+TRANSPORTATION_CHOICES = (('KFZ_Eigen', 'Eigenes KFZ'),
+    ('KFZ_mitfahrt', 'Mitfahrer'),
+    ('BusSMH', 'Bus ab SMH'),
+    ('BusFS', 'Bus ab FS'),
+    ('Bahn', 'Bahn'),
+    ('Flugzeug', 'Flugzeug'),
+    ('zuFuss', 'zu Fuss'),
+    ('andere', 'andere'),
+    ('keine', 'keine'))
 
-gender = enum(WOMAN = 0, MAN = 1)
 
-function = enum(Jugendleiter = 'Jugendleiter', Prediger = 'Prediger', Hauptjugendleiter = 'Hauptjugendleiter')
+ROLE_CHOICES = (('Jugendleiter', 'Jugendleiter'), ('Prediger', 'Prediger'), ('Hauptjugendleiter', 'Hauptjugendleiter'))
     
 
 class Booking(models.Model):
@@ -28,12 +30,20 @@ class Booking(models.Model):
     departure = models.DateTimeField()
     comment = models.CharField(max_length=500, blank=True)
     transportationBegin = models.CharField(max_length=20, blank=False)
+    transportationBeginMethod = models.CharField(max_length=20, choices=TRANSPORTATION_CHOICES, default='keine')
     transportationEnd = models.CharField(max_length=20, blank=False)
+    transportationEndMethod = models.CharField(max_length=20, choices=TRANSPORTATION_CHOICES, default='keine')
     price = models.DecimalField(max_digits=10, decimal_places=2)
     hasPaid = models.BooleanField(default=False)
     isReduced = models.BooleanField(default=False)
     familyMembers = models.IntegerField()
     bookingDate = models.DateTimeField()
     
-    
+    class Meta:
+        app_label = 'zeltlager_management'
+        verbose_name = 'Buchung'
+        verbose_name_plural = 'Buchungen'
+        
+    def __unicode__(self):
+        return smart_unicode(str(self.number) + ", " + self.participant.name)
     
