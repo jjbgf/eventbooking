@@ -4,10 +4,6 @@ from django.utils.encoding import smart_unicode
 from zeltlager_registration.models import Participant
 from zeltlager_registration.models import ZeltlagerDurchgang
 
-#define enum in python 2.7
-#def enum(**enums):
-#    return type('Enum', (), enums)
-
 TRANSPORTATION_CHOICES = (('KFZ_Eigen', 'Eigenes KFZ'),
     ('KFZ_mitfahrt', 'Mitfahrer'),
     ('BusSMH', 'Bus ab SMH'),
@@ -18,9 +14,6 @@ TRANSPORTATION_CHOICES = (('KFZ_Eigen', 'Eigenes KFZ'),
     ('andere', 'andere'),
     ('keine', 'keine'))
 
-
-ROLE_CHOICES = (('Jugendleiter', 'Jugendleiter'), ('Prediger', 'Prediger'), ('Hauptjugendleiter', 'Hauptjugendleiter'))
-    
 
 class Booking(models.Model):
     number = models.IntegerField()

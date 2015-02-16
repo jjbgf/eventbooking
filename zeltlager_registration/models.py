@@ -4,10 +4,12 @@ from django.utils.encoding import smart_unicode
 from localflavor.de.de_states import STATE_CHOICES
 
 GENDER_CHOICES = (('0', 'weiblich'), ('1', 'männlich'))
+SWIMMING_BADGE_CHOICES = (('Seepferdchen','Seepferdchen'),('Bronze','Deutsches Jugendschwimmabzeichen – Bronze'),('Silber','Deutsches Jugendschwimmabzeichen – Silber'),('Gold','Deutsches Jugendschwimmabzeichen – Gold'),('Rettungsschwimmabzeichen','Rettungsschwimmabzeichen'))
+ROLE_CHOICES = (('Jugendleiter', 'Jugendleiter'), ('Prediger', 'Prediger'), ('Hauptjugendleiter', 'Hauptjugendleiter'))
 
 class Address (models.Model):
     street = models.CharField(max_length=200)
-    street_additional = models.CharField(max_length=10, blank=True)
+    street_additional = models.CharField(max_length=20, blank=True)
     street_number = models.PositiveIntegerField()
     postcode = models.PositiveIntegerField()
     city = models.CharField(max_length=200)
@@ -20,12 +22,13 @@ class Address (models.Model):
         verbose_name_plural = 'Adressen'
         
     def __unicode__(self):
-        return smart_unicode(self.street + ", " + str(self.street_number) + ", "+ str(self.postcode) +", "+ self.city)
+        return smart_unicode(self.street + ", " + str(self.street_number) + ", "+ str(self.postcode) +" "+ self.city)
     
 class Jugendgruppe(models.Model):
     name = models.CharField(max_length=200)
     address = models.ForeignKey(Address, blank=True, default=None)
     description = models.CharField(max_length=500)
+    # reference the jugendleiter (one to many)
     
     def __unicode__(self):
         return smart_unicode(self.name)
@@ -37,7 +40,8 @@ class Jugendgruppe(models.Model):
 
 class ZeltlagerDurchgang(models.Model):
     number = models.IntegerField(primary_key=True)
-    place = models.CharField(max_length=200)
+    name = models.CharField(max_length=100)
+    address = models.ForeignKey(Address, blank=True, default=None)
     start = models.DateTimeField()
     end = models.DateTimeField()
     capacity = models.IntegerField()
@@ -49,16 +53,17 @@ class ZeltlagerDurchgang(models.Model):
         verbose_name_plural = 'Zeltlagerdurchgänge'
 
     def __unicode__(self):
-        return smart_unicode(str(self.number)) + ". " + self.place
+        return smart_unicode(self.name)
 
 class Participant(models.Model):
     name = models.CharField(max_length=200)
     firstname = models.CharField(max_length=200)
-    zeltlager_durchgang = models.ForeignKey(ZeltlagerDurchgang, blank=True, default=None, null=True)
+    zeltlager_durchgang = models.ForeignKey(ZeltlagerDurchgang, blank=True, default=None)
     address = models.ForeignKey(Address, blank=True, default=None)
     phone_number = models.CharField(max_length=200, blank=True)
     mobile_number = models.CharField(max_length=200, blank=True)
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES)
+    position = models.CharField(max_length=20, choices=ROLE_CHOICES, blank=True)
     jugendgruppe = models.CharField(max_length=200, blank=True)
     mail = models.EmailField(max_length=254, blank=True)
     job = models.CharField(max_length=200, blank=True)
@@ -78,7 +83,7 @@ class Participant(models.Model):
     main_insurant_employer = models.CharField(max_length=200)
     tetanus_immunization = models.DateField(blank=True, null=True)
     remember_me_about_medicine = models.TextField(blank=True)
-    swimming_badge = models.CharField(max_length=200, blank=True)
+    swimming_badge = models.CharField(max_length=50, blank=True, choices=SWIMMING_BADGE_CHOICES)
     allow_separation_in_groups = models.BooleanField(default=False)
     additional_participants_same_household = models.CharField(max_length=200, blank=True)
     partial_participant = models.BooleanField(default=False)

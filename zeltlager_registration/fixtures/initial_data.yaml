@@ -10,9 +10,10 @@
     is_staff: true
     is_superuser: true
     last_name: 'admin'
-    password: pbkdf2_sha256$15000$dlbxEfhJOCaD$AF9WOks+1pqZ1RNLDCLQj1t4UnUinhwUcqb5kRFQJNM= #admin
+    password: pbkdf2_sha256$15000$dlbxEfhJOCaD$AF9WOks+1pqZ1RNLDCLQj1t4UnUinhwUcqb5kRFQJNM= #password=admin
     user_permissions: []
     username: admin
+
 
 # jeweilige adressen und jugendgruppen    
 
@@ -107,8 +108,8 @@
   pk: 9
   
     
-- fields: {bundesland: Brandenburg, city: Waischenfeld, country: Deutschland, postcode: 91344,
-    street: Gut Schönhof, street_additional: 'Eichenb', street_number: 11}
+- fields: {bundesland: Bayern, city: Waischenfeld, country: Deutschland, postcode: 91344,
+    street: Gut Schönhof, street_additional: 'Eichenbirkig', street_number: 11}
   model: zeltlager_registration.address
   pk: 10
   
@@ -184,7 +185,7 @@ Wir sind eine von zwei Jugendgemeinschaften in der Johannischen Jugend. Im Gegen
   
 
 - fields: {bundesland: Brandenburg, city: Glau, country: Deutschland, postcode: 14959,
-    street: Birkenstraße, street_additional: '', street_number: 0}
+    street: Birkenstraße, street_additional: 'Jugendraum Sonne', street_number: 0}
   model: zeltlager_registration.address
   pk: 17
   
@@ -286,3 +287,22 @@ Wir sind eine von zwei Jugendgemeinschaften in der Johannischen Jugend. Im Gegen
 - fields: {address: 26, description: "-", name: Witenberg - Elster}
   model: zeltlager_registration.jugendgruppe
   pk: 28
+  
+  
+#zeltlager
+
+- fields: {address: 10, name: "1. Zeltlager Gut Schönhof", start: '2015-07-25 15:00', end: '2015-08-07 11:00', capacity: 40, lagerleiter: "-"}
+  model: zeltlager_registration.ZeltlagerDurchgang
+  pk: 1
+
+- fields: {address: 17, name: "3. Zeltlager Friedensstadt", start: '2015-07-25 15:00', end: '2015-08-07 11:00', capacity: 40, lagerleiter: "-"}
+  model: zeltlager_registration.ZeltlagerDurchgang
+  pk: 2
+  
+- fields: {address: 10, name: "2. Zeltlager Gut Schönhof", start: '2015-08-07 15:00', end: '2015-08-20 11:00', capacity: 40, lagerleiter: "-"}
+  model: zeltlager_registration.ZeltlagerDurchgang
+  pk: 3
+  
+- fields: {address: 17, name: "4. Zeltlager Gut Friedensstadt", start: '2015-08-07 15:00', end: '2015-08-20 11:00', capacity: 40, lagerleiter: "-"}
+  model: zeltlager_registration.ZeltlagerDurchgang
+  pk: 4
