@@ -1,7 +1,7 @@
 # superuser
 
 - model: auth.user
-  pk: 3
+  pk: 1
   fields:
     email: ''
     first_name: 'admin'
