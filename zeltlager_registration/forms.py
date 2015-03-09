@@ -10,6 +10,9 @@ from django.forms.models import inlineformset_factory
 from zeltlager_registration.models import Participant, Address, Jugendgruppe
 import datetime
 from localflavor.de.forms import DEZipCodeField
+from django.core.exceptions import ValidationError
+from datetimewidget.widgets import DateWidget
+
 
 #class RegisterForm(ModelForm):
     
@@ -21,16 +24,29 @@ class ParticipantForm(ModelForm):
         self.fields['jugendgruppe'] = forms.ModelChoiceField(queryset=Jugendgruppe.objects.all())
         self.fields['firstname'].label = "Vorname"
         self.fields['mail'] = forms.EmailField()
-        self.fields['birth_date'] = forms.DateField(required=True, initial=datetime.date.today)
-        self.fields['birth_place'] = forms.DateField(required=True, initial=datetime.date.today)
+        #self.fields['birth_date'] = forms.DateField(required=True, initial=datetime.date.today())
         self.fields['postcode'] = DEZipCodeField()
+        
+        
+    def clean(self):
+        cleaned_data = super(ParticipantForm, self).clean()
+        mail = cleaned_data.get("mail")
+        
+        if not mail:
+            raise ValidationError("Keine E-Mail-Adresse angegeben")
                
     class Meta:
         model = Participant
-        exclude = ('zeltlager_durchgang',)
-        fiels = []
-        #fields = ['firstname', 'name', 'jugendgruppe', 'mail', 'job', 'birth_date', 'birth_place', 'vegetarian', 'gender']
-    
+        widgets = {
+            #Use localization and bootstrap 3
+            'birth_date': DateWidget(attrs={'id':"birth_date"}, usel10n = True, bootstrap_version=3),
+            'main_insurant_birthdate': DateWidget(attrs={'id':"birth_date"}, usel10n = True, bootstrap_version=3),
+            'tetanus_immunization': DateWidget(attrs={'id':"birth_date"}, usel10n = True, bootstrap_version=3),
+            'partial_start': DateWidget(attrs={'id':"birth_date"}, usel10n = True, bootstrap_version=3),
+            'partial_end': DateWidget(attrs={'id':"birth_date"}, usel10n = True, bootstrap_version=3)
+            }
+#         exclude = ()
+#         fields = []
     
     
 class AddressForm(ModelForm):
@@ -40,4 +56,4 @@ class AddressForm(ModelForm):
         #exclude = ('Participant',)
         
         
-RegisterFormSet = inlineformset_factory(Address, Participant, can_delete=True)
+RegisterFormSet = inlineformset_factory(Address, Participant)

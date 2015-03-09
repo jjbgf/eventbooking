@@ -3,7 +3,9 @@
 
 {# Load CSS and JavaScript #}
 {% bootstrap_css %}
+<script src="//code.jquery.com/jquery.min.js"></script>
 {% bootstrap_javascript %}
+{{ form.media }}
 
 <div id="header">
 <h1>Registriere dich fürs Zeltlager</h1>
@@ -17,7 +19,7 @@
 {% block content %}
 <form action="{% url 'save' %}" method="post" class="form">
   {% csrf_token %}
-
+{% bootstrap_form_errors form %}
   {% bootstrap_form form layout='horizontal' %}
   {% buttons %}
     <button type="submit" class="btn btn-primary">

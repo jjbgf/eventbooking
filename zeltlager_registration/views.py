@@ -22,10 +22,12 @@ def save(request):
     # create a form instance and populate it with data from the request:
     form = ParticipantForm(request.POST)
     # check whether it's valid:
-    logger.debug(form.is_valid())
+    logger.debug('is form valid: '+ str(form.is_valid()))
+        
+    form.clean()
         
     if form.is_valid():
-        participant = form.save(commit=False)
+        #participant = form.save(commit=False)
         #participant_formset = RegisterFormSet(request.POST, instance=participant)
             
 #             if participant_formset.is_valid():
@@ -37,14 +39,14 @@ def save(request):
             #newitem.ZeltlagerDurchgang = ZeltlagerDurchgang.objects.get(id=1)
             #newitem.save()
             #form.cleaned_data['zeltlager_durchgang_id'] = 1
-            #form.save()
+        form.save()
             
             # process the data in form.cleaned_data as required
             # ...
             # redirect to a new URL:
         return HttpResponseRedirect('zeltlager_registration/thanks.html')
 
-    return HttpResponse("saved")
+    return HttpResponse("validation errors found")
 
 @require_http_methods(["GET"])
 def register (request):

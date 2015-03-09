@@ -39,7 +39,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'zeltlager_registration',
     'zeltlager_management',
-    'bootstrap3'
+    'bootstrap3',
+    'localflavor',
+    'datetimewidget',
 )
 
 MIDDLEWARE_CLASSES = (
