@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/jjbgf/eventbooking.svg?branch=master)](https://travis-ci.org/jjbgf/eventbooking)
+[![Codacy Badge](https://www.codacy.com/project/badge/166e4d386356418fb152658d8be0c8ef)](https://www.codacy.com/public/mail_5/eventbooking)
 
 # eventbooking
 Django webapp which allows users to subscribe to an event.
