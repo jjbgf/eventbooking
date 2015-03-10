@@ -40,10 +40,10 @@ class ParticipantForm(ModelForm):
         widgets = {
             #Use localization and bootstrap 3
             'birth_date': DateWidget(attrs={'id':"birth_date"}, usel10n = True, bootstrap_version=3),
-            'main_insurant_birthdate': DateWidget(attrs={'id':"birth_date"}, usel10n = True, bootstrap_version=3),
-            'tetanus_immunization': DateWidget(attrs={'id':"birth_date"}, usel10n = True, bootstrap_version=3),
-            'partial_start': DateWidget(attrs={'id':"birth_date"}, usel10n = True, bootstrap_version=3),
-            'partial_end': DateWidget(attrs={'id':"birth_date"}, usel10n = True, bootstrap_version=3)
+            'main_insurant_birthdate': DateWidget(attrs={'id':"main_insurant_birthdate"}, usel10n = True, bootstrap_version=3),
+            'tetanus_immunization': DateWidget(attrs={'id':"tetanus_immunization"}, usel10n = True, bootstrap_version=3),
+            'partial_start': DateWidget(attrs={'id':"partial_start"}, usel10n = True, bootstrap_version=3),
+            'partial_end': DateWidget(attrs={'id':"partial_end"}, usel10n = True, bootstrap_version=3)
             }
 #         exclude = ()
 #         fields = []
