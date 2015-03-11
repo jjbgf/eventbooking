@@ -6,9 +6,6 @@ python:
 env:
   - DJANGO=1.7.4
 
-before_install:
-  - cp eventbooking/settings_travis.py eventbooking/settings.py
-
 install:
   - pip install -r requirements/requirements-base.txt
 
