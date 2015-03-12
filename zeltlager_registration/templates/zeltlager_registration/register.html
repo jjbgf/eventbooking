@@ -1,3 +1,6 @@
+{# Load internationalization #}
+{% load i18n %}
+
 {# Load the tag library #}
 {% load bootstrap3 %}
 
@@ -8,7 +11,7 @@
 {{ form.media }}
 
 <div id="header">
-<h1>Registriere dich fürs Zeltlager</h1>
+<h1>{% trans "Register for Zeltlager" %}</h1>
 </div>
 
 <div id="main">

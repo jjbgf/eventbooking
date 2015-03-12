@@ -13,8 +13,14 @@ DATABASES['default'] =  dj_database_url.config()
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
+DEBUG = False
+
+TEMPLATE_DEBUG = False
+
 # Allow all host headers
 ALLOWED_HOSTS = ['*']
+
+WSGI_APPLICATION = 'eventbooking.wsgi_heroku.application'
 
 # Static asset configuration
 import os
