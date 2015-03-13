@@ -19,4 +19,4 @@ msgstr ""
 
 #: zeltlager_registration/templates/zeltlager_registration/register.html:14
 msgid "Register for Zeltlager"
-msgstr "Register for Zeltlager abc"
+msgstr "Register for Zeltlager"
