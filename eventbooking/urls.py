@@ -9,7 +9,6 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^zeltlager/', include('zeltlager_registration.urls')),
-    (r'^static/(?P<path>.*)$', 'django.contrib.staticfiles.views.serve', {'document_root': settings.STATIC_ROOT}),
 )
 
 
