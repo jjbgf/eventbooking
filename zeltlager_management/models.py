@@ -17,8 +17,8 @@ TRANSPORTATION_CHOICES = (('KFZ_Eigen', 'Eigenes KFZ'),
 
 class Booking(models.Model):
     number = models.IntegerField()
-    participant = models.ForeignKey(Participant, blank=True, default=None)
-    event = models.ForeignKey(ZeltlagerDurchgang, blank=True, default=None)
+    participant = models.ForeignKey(Participant, blank=False, default=None)
+    event = models.ForeignKey(ZeltlagerDurchgang, blank=False, default=None)
     arrival = models.DateTimeField()
     departure = models.DateTimeField()
     comment = models.CharField(max_length=500, blank=True)

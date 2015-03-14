@@ -6,7 +6,6 @@ Created on 08.02.2015
 
 from django.forms import ModelForm
 from django import forms
-from django.forms.models import inlineformset_factory
 from zeltlager_registration.models import Participant, Address, Jugendgruppe
 import datetime
 from localflavor.de.forms import DEZipCodeField
@@ -22,21 +21,20 @@ class ParticipantForm(ModelForm):
         super(ParticipantForm, self).__init__(*args, **kwargs)
         # Overwrite model
         self.fields['jugendgruppe'] = forms.ModelChoiceField(queryset=Jugendgruppe.objects.all())
-        self.fields['firstname'].label = "Vorname"
         self.fields['mail'] = forms.EmailField()
-        #self.fields['birth_date'] = forms.DateField(required=True, initial=datetime.date.today())
-        self.fields['postcode'] = DEZipCodeField()
+        self.fields['birth_date'] = forms.DateField(required=True, initial=datetime.date.today())
         
         
-    def clean(self):
-        cleaned_data = super(ParticipantForm, self).clean()
-        mail = cleaned_data.get("mail")
+    #def clean(self):
+     #   cleaned_data = super(RegisterForm, self).clean()
+      #  mail = cleaned_data.get("mail")
         
-        if not mail:
-            raise ValidationError("Keine E-Mail-Adresse angegeben")
+       # if not mail:
+        #    raise ValidationError("Keine E-Mail-Adresse angegeben")
                
     class Meta:
         model = Participant
+        exclude = ['address']
         widgets = {
             #Use localization and bootstrap 3
             'birth_date': DateWidget(attrs={'id':"birth_date"}, usel10n = True, bootstrap_version=3),
@@ -45,15 +43,14 @@ class ParticipantForm(ModelForm):
             'partial_start': DateWidget(attrs={'id':"partial_start"}, usel10n = True, bootstrap_version=3),
             'partial_end': DateWidget(attrs={'id':"partial_end"}, usel10n = True, bootstrap_version=3)
             }
-#         exclude = ()
-#         fields = []
-    
     
 class AddressForm(ModelForm):
-    
+    def __init__(self, *args, **kwargs):
+        super(AddressForm, self).__init__(*args, **kwargs)
+        # Overwrite model
+        self.fields['postcode'] = DEZipCodeField()
+        
     class Meta:
         model = Address
-        #exclude = ('Participant',)
         
-        
-RegisterFormSet = inlineformset_factory(Address, Participant)
+#RegisterFormSet = inlineformset_factory(Address, Participant)

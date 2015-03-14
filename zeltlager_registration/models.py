@@ -13,7 +13,7 @@ class Address (models.Model):
     street_number = models.PositiveIntegerField()
     postcode = models.PositiveIntegerField()
     city = models.CharField(max_length=200)
-    bundesland = models.CharField(max_length=100, choices=STATE_CHOICES)
+    state = models.CharField(max_length=100, choices=STATE_CHOICES)
     country = models.CharField(max_length=200)
     
     class Meta:
@@ -58,8 +58,8 @@ class ZeltlagerDurchgang(models.Model):
 class Participant(models.Model):
     name = models.CharField(max_length=200)
     firstname = models.CharField(max_length=200)
-    zeltlager_durchgang = models.ForeignKey(ZeltlagerDurchgang, blank=True, default=None)
-    address = models.ForeignKey(Address, blank=True, default=None)
+    zeltlager_durchgang = models.ForeignKey(ZeltlagerDurchgang, blank=False, default=None)
+    address = models.ForeignKey(Address, blank=False, default=None)
     phone_number = models.CharField(max_length=200, blank=True)
     mobile_number = models.CharField(max_length=200, blank=True)
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES)

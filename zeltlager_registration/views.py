@@ -1,15 +1,14 @@
 # -*- coding: utf-8 -*-
 
 from django.shortcuts import render
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponse
+from zeltlager_registration.models import Address, Participant
 import logging
-from zeltlager_registration.forms import  ParticipantForm, RegisterFormSet
-from zeltlager_registration.models import ZeltlagerDurchgang, Participant
-from django.forms.models import inlineformset_factory
+from zeltlager_registration.forms import  ParticipantForm, AddressForm
 from django.views.decorators.http import require_http_methods
 
 # Get an instance of a logger
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('zeltlager_registration')
 
 @require_http_methods(["GET"])
 def index(request):
@@ -19,39 +18,37 @@ def index(request):
 @require_http_methods(["POST"])
 def save(request):
     
+    #dirty dirty hack
+    addresss = Address()
+    addresss.id = None
+    
+    participantt = Participant()
+    participantt.id = None
+    
     # create a form instance and populate it with data from the request:
-    form = ParticipantForm(request.POST)
+    addressForm = AddressForm(request.POST, instance=addresss)
+    participantForm = ParticipantForm(request.POST, instance=participantt)
+    
     # check whether it's valid:
-    logger.debug('is form valid: '+ str(form.is_valid()))
+    logger.debug('is form valid: '+ str(addressForm.is_valid()))
         
-    form.clean()
+    #addressForm.clean()
         
-    if form.is_valid():
-        #participant = form.save(commit=False)
-        #participant_formset = RegisterFormSet(request.POST, instance=participant)
+    if addressForm.is_valid():
             
-#             if participant_formset.is_valid():
-#                 participant.save()
-#                 participant_formset.save()
-            
-            #dirty hack
-            #newitem = form.save(commit=False)
-            #newitem.ZeltlagerDurchgang = ZeltlagerDurchgang.objects.get(id=1)
-            #newitem.save()
-            #form.cleaned_data['zeltlager_durchgang_id'] = 1
-        form.save()
+        address = addressForm.save(commit=False)
+        address.save()
+        participant = participantForm.save(commit=False)
+        participant.address = address
+        participant.save()
             
             # process the data in form.cleaned_data as required
-            # ...
-            # redirect to a new URL:
-        return HttpResponseRedirect('zeltlager_registration/thanks.html')
+        return render(request, 'zeltlager_registration/thanks.html')
 
     return HttpResponse("validation errors found")
 
 @require_http_methods(["GET"])
 def register (request):
-    context = {'form' : ParticipantForm()}
-    #context = {'formset' : RegisterFormSet()}
+    context = {'addressForm' : AddressForm(), 'participantForm' : ParticipantForm()}
     return render(request, 'zeltlager_registration/register.html', context)
-#     return render(request, 'zeltlager_registration/register.html')
     

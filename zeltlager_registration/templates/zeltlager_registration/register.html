@@ -6,7 +6,6 @@
 
 {# Load CSS and JavaScript #}
 {% bootstrap_css %}
-<script src="//code.jquery.com/jquery.min.js"></script>
 {% bootstrap_javascript %}
 {{ form.media }}
 
@@ -14,17 +13,71 @@
 <h1>{% trans "Register for Zeltlager" %}</h1>
 </div>
 
-<div id="main">
+<div id="main" style="margin-left: auto; margin-right: auto; width: 40%;">
 {# Display django.contrib.messages as Bootstrap alerts #}
 {% bootstrap_messages %}
 
 {# Display a form #}
 {% block content %}
-<form action="{% url 'save' %}" method="post" class="form">
-  {% csrf_token %}
-{% bootstrap_form_errors form %}
-  {% bootstrap_form form layout='horizontal' %}
-  {% buttons %}
+{% bootstrap_form_errors addressForm %}
+<form action="{% url 'save' %}" method="post">
+	{% csrf_token %}
+	
+	<div class="input-group">
+	<h2>Persönliches</h2>
+	{% bootstrap_field participantForm.firstname %}
+	{% bootstrap_field participantForm.name %}
+	{% bootstrap_field participantForm.birth_date %}
+	{% bootstrap_field participantForm.birth_place %}
+	{% bootstrap_field participantForm.phone_number %}
+	{% bootstrap_field participantForm.mobile_number %}
+	{% bootstrap_field participantForm.mail %}
+	{% bootstrap_field participantForm.gender %}
+	{% bootstrap_field participantForm.position %}
+	{% bootstrap_field participantForm.jugendgruppe %}
+	{% bootstrap_field participantForm.job %}
+	{% bootstrap_field participantForm.swimming_badge %}
+	{% bootstrap_field participantForm.vegetarian %}
+	</div>
+	
+	<div class="input-group">
+	<h4>Adresse</h4>
+	{% bootstrap_form addressForm %}
+	</div>
+  
+  	<div class="input-group">
+  	<h2>Zeltlagerinfos</h2>
+    {% bootstrap_field participantForm.zeltlager_durchgang %}
+    {% bootstrap_field participantForm.alternative_zeltlager_durchgang %}
+    {% bootstrap_field participantForm.preferred_work %}
+    {% bootstrap_field participantForm.activities_i_liked %}
+    {% bootstrap_field participantForm.things_i_can_provide %}
+    {% bootstrap_field participantForm.skills %}
+    {% bootstrap_field participantForm.allow_separation_in_groups %}
+    {% bootstrap_field participantForm.additional_participants_same_household %}
+    {% bootstrap_field participantForm.partial_participant %}
+    {% bootstrap_field participantForm.partial_start %}
+    {% bootstrap_field participantForm.partial_end %}
+    {% bootstrap_field participantForm.arrival_by %}
+    </div>
+    
+    <div class="input-group">
+    <h2>Versicherungsdaten</h2>
+    {% bootstrap_field participantForm.legal_guardian %}
+    {% bootstrap_field participantForm.legal_guardian_phone_number %}
+    {% bootstrap_field participantForm.legal_guardian_mobile_number %}
+    {% bootstrap_field participantForm.insurance_company %}
+    {% bootstrap_field participantForm.insurance_number %}
+    {% bootstrap_field participantForm.main_insurant %}
+    {% bootstrap_field participantForm.main_insurant_birthdate %}
+    {% bootstrap_field participantForm.main_insurant_address %}
+    {% bootstrap_field participantForm.main_insurant_employer %}
+    {% bootstrap_field participantForm.tetanus_immunization %}
+    {% bootstrap_field participantForm.remember_me_about_medicine %}
+    {% bootstrap_field participantForm.restrictions %}
+	</div>
+  	
+  	{% buttons %}
     <button type="submit" class="btn btn-primary">
       {% bootstrap_icon "save" %} Absenden
     </button>
