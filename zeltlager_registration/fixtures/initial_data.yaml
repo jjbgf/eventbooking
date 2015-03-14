@@ -17,7 +17,7 @@
 
 # jeweilige adressen und jugendgruppen    
 
-- fields: {bundesland: Baden-Württemberg, city: Tiengen, country: Deutschland, postcode: 79761,
+- fields: {state: Baden-Württemberg, city: Tiengen, country: Deutschland, postcode: 79761,
     street: Hauptstraße, street_additional: '', street_number: 16}
   model: zeltlager_registration.address
   pk: 1
@@ -28,7 +28,7 @@
   pk: 1
   
   
-- fields: {bundesland: Berlin, city: Berlin, country: Deutschland, postcode: 12621,
+- fields: {state: Berlin, city: Berlin, country: Deutschland, postcode: 12621,
     street: Dorfstraße, street_additional: '', street_number: 2}
   model: zeltlager_registration.address
   pk: 2
@@ -38,7 +38,7 @@
   pk: 2
   
   
-- fields: {bundesland: Berlin, city: Berlin, country: Deutschland, postcode: 14193,
+- fields: {state: Berlin, city: Berlin, country: Deutschland, postcode: 14193,
     street: Bismarckallee, street_additional: '', street_number: 23}
   model: zeltlager_registration.address
   pk: 3
@@ -48,7 +48,7 @@
   pk: 3
   
   
-- fields: {bundesland: Bremen, city: Bremen, country: Deutschland, postcode: 28219,
+- fields: {state: Bremen, city: Bremen, country: Deutschland, postcode: 28219,
     street: Fleetstraße, street_additional: '', street_number: 37}
   model: zeltlager_registration.address
   pk: 4
@@ -58,7 +58,7 @@
   pk: 4
   
   
-- fields: {bundesland: Nordrhein-Westfalen, city: Hamm, country: Deutschland, postcode: 59077,
+- fields: {state: Nordrhein-Westfalen, city: Hamm, country: Deutschland, postcode: 59077,
     street: Beverkramenstraße, street_additional: '', street_number: 17}
   model: zeltlager_registration.address
   pk: 5
@@ -68,7 +68,7 @@
   pk: 5
   
   
-- fields: {bundesland: Sachsen, city: Dresden, country: Deutschland, postcode: 01326,
+- fields: {state: Sachsen, city: Dresden, country: Deutschland, postcode: 01326,
     street: Tiedgestraße, street_additional: '', street_number: 1}
   model: zeltlager_registration.address
   pk: 6
@@ -78,7 +78,7 @@
   pk: 6
   
   
-- fields: {bundesland: Nordrhein-Westfalen, city: Kaarst-Holzbüttgen, country: Deutschland, postcode: 41564,
+- fields: {state: Nordrhein-Westfalen, city: Kaarst-Holzbüttgen, country: Deutschland, postcode: 41564,
     street: Bruchweg, street_additional: '', street_number: 126}
   model: zeltlager_registration.address
   pk: 7
@@ -88,7 +88,7 @@
   pk: 7
   
   
-- fields: {bundesland: Brandenburg, city: Frankfurt Oder, country: Deutschland, postcode: 15234,
+- fields: {state: Brandenburg, city: Frankfurt Oder, country: Deutschland, postcode: 15234,
     street: Fürstenwalder Poststraße, street_additional: '', street_number: 180}
   model: zeltlager_registration.address
   pk: 8
@@ -98,7 +98,7 @@
   pk: 8
   
   
-- fields: {bundesland: Brandenburg, city: Fürstenwalde, country: Deutschland, postcode: 15517,
+- fields: {state: Brandenburg, city: Fürstenwalde, country: Deutschland, postcode: 15517,
     street: Lindenstraße, street_additional: '', street_number: 15}
   model: zeltlager_registration.address
   pk: 9
@@ -108,7 +108,7 @@
   pk: 9
   
     
-- fields: {bundesland: Bayern, city: Waischenfeld, country: Deutschland, postcode: 91344,
+- fields: {state: Bayern, city: Waischenfeld, country: Deutschland, postcode: 91344,
     street: Gut Schönhof, street_additional: 'Eichenbirkig', street_number: 11}
   model: zeltlager_registration.address
   pk: 10
@@ -118,7 +118,7 @@
   pk: 10
   
   
-- fields: {bundesland: -, city: Hrodna, country: Weißrussland, postcode: 00000,
+- fields: {state: -, city: Hrodna, country: Weißrussland, postcode: 00000,
     street: -, street_additional: '', street_number: 0}
   model: zeltlager_registration.address
   pk: 11
@@ -128,7 +128,7 @@
   pk: 11
   
   
-- fields: {bundesland: Mecklenburg-Vorpommern, city: Güstrow, country: Deutschland, postcode: 18273,
+- fields: {state: Mecklenburg-Vorpommern, city: Güstrow, country: Deutschland, postcode: 18273,
     street: Weinbergstraße, street_additional: '', street_number: 28}
   model: zeltlager_registration.address
   pk: 12
@@ -138,7 +138,7 @@
   pk: 12
   
 
-- fields: {bundesland: Hamburg, city: Hamburg, country: Deutschland, postcode: 22926,
+- fields: {state: Hamburg, city: Hamburg, country: Deutschland, postcode: 22926,
     street: Schimmelmannstraße, street_additional: '', street_number: 61}
   model: zeltlager_registration.address
   pk: 13
@@ -148,7 +148,7 @@
   pk: 13
   
   
-- fields: {bundesland: Niedersachsen, city: Hannover, country: Deutschland, postcode: 30451,
+- fields: {state: Niedersachsen, city: Hannover, country: Deutschland, postcode: 30451,
     street: Windheimstraße, street_additional: '', street_number: 4}
   model: zeltlager_registration.address
   pk: 14
@@ -158,7 +158,7 @@
   pk: 14
   
   
-- fields: {bundesland: Sachsen-Anhalt, city: Wegeleben, country: Deutschland, postcode: 38805,
+- fields: {state: Sachsen-Anhalt, city: Wegeleben, country: Deutschland, postcode: 38805,
     street: Kirchhof, street_additional: '', street_number: 3}
   model: zeltlager_registration.address
   pk: 15
@@ -168,7 +168,7 @@
   pk: 15
   
 
-- fields: {bundesland: Sachsen-Anhalt, city: Jena, country: Deutschland, postcode: 07749,
+- fields: {state: Sachsen-Anhalt, city: Jena, country: Deutschland, postcode: 07749,
     street: Ernst-Schneller-Straße, street_additional: '', street_number: 10}
   model: zeltlager_registration.address
   pk: 16
@@ -184,7 +184,7 @@ Wir sind eine von zwei Jugendgemeinschaften in der Johannischen Jugend. Im Gegen
   pk: 17
   
 
-- fields: {bundesland: Brandenburg, city: Glau, country: Deutschland, postcode: 14959,
+- fields: {state: Brandenburg, city: Glau, country: Deutschland, postcode: 14959,
     street: Birkenstraße, street_additional: 'Jugendraum Sonne', street_number: 0}
   model: zeltlager_registration.address
   pk: 17
@@ -194,7 +194,7 @@ Wir sind eine von zwei Jugendgemeinschaften in der Johannischen Jugend. Im Gegen
   pk: 18
   
   
-- fields: {bundesland: Brandenburg, city: Forst, country: Deutschland, postcode: 03149,
+- fields: {state: Brandenburg, city: Forst, country: Deutschland, postcode: 03149,
     street: Spremberger Straße, street_additional: '', street_number: 52}
   model: zeltlager_registration.address
   pk: 18
@@ -204,7 +204,7 @@ Wir sind eine von zwei Jugendgemeinschaften in der Johannischen Jugend. Im Gegen
   pk: 19
   
 
-- fields: {bundesland: Sachsen, city: Leipzig, country: Deutschland, postcode: 04425,
+- fields: {state: Sachsen, city: Leipzig, country: Deutschland, postcode: 04425,
     street: Kirchstraße, street_additional: '', street_number: 1}
   model: zeltlager_registration.address
   pk: 19
@@ -214,7 +214,7 @@ Wir sind eine von zwei Jugendgemeinschaften in der Johannischen Jugend. Im Gegen
   pk: 20
   
 
-- fields: {bundesland: Mecklenburg-Vorpommern, city: Lübs, country: Deutschland, postcode: 17379,
+- fields: {state: Mecklenburg-Vorpommern, city: Lübs, country: Deutschland, postcode: 17379,
     street: Dorfstraße, street_additional: '', street_number: 45}
   model: zeltlager_registration.address
   pk: 20
@@ -224,7 +224,7 @@ Wir sind eine von zwei Jugendgemeinschaften in der Johannischen Jugend. Im Gegen
   pk: 21
   
 
-- fields: {bundesland: Mecklenburg-Vorpommern, city: Potsdam, country: Deutschland, postcode: 14478,
+- fields: {state: Mecklenburg-Vorpommern, city: Potsdam, country: Deutschland, postcode: 14478,
     street: Milanhorst, street_additional: '', street_number: 9}
   model: zeltlager_registration.address
   pk: 21
@@ -234,7 +234,7 @@ Wir sind eine von zwei Jugendgemeinschaften in der Johannischen Jugend. Im Gegen
   pk: 22
   
 
-- fields: {bundesland: Brandenburg, city: Schwedt, country: Deutschland, postcode: 16303,
+- fields: {state: Brandenburg, city: Schwedt, country: Deutschland, postcode: 16303,
     street: Vierradener Straße, street_additional: '', street_number: 42}
   model: zeltlager_registration.address
   pk: 22
@@ -244,7 +244,7 @@ Wir sind eine von zwei Jugendgemeinschaften in der Johannischen Jugend. Im Gegen
   pk: 23
   
 
-- fields: {bundesland: Baden-Württemberg, city: Mühlacker, country: Deutschland, postcode: 75417,
+- fields: {state: Baden-Württemberg, city: Mühlacker, country: Deutschland, postcode: 75417,
     street: Philipp-Bauer-Weg, street_additional: '', street_number: 2}
   model: zeltlager_registration.address
   pk: 23
@@ -259,7 +259,7 @@ Wir sind eine von zwei Jugendgemeinschaften in der Johannischen Jugend. Im Gegen
   pk: 25
   
   
-- fields: {bundesland: Brandenburg, city: Velten, country: Deutschland, postcode: 16727,
+- fields: {state: Brandenburg, city: Velten, country: Deutschland, postcode: 16727,
     street: Breite Straße, street_additional: '', street_number: 90}
   model: zeltlager_registration.address
   pk: 24
@@ -269,7 +269,7 @@ Wir sind eine von zwei Jugendgemeinschaften in der Johannischen Jugend. Im Gegen
   pk: 26
   
   
-- fields: {bundesland: Hessen, city: Frankfurt Main, country: Deutschland, postcode: 60486,
+- fields: {state: Hessen, city: Frankfurt Main, country: Deutschland, postcode: 60486,
     street: Schwälmer Straße , street_additional: '', street_number: 20}
   model: zeltlager_registration.address
   pk: 25
@@ -279,7 +279,7 @@ Wir sind eine von zwei Jugendgemeinschaften in der Johannischen Jugend. Im Gegen
   pk: 27
   
   
-- fields: {bundesland: Sachsen, city: Elster, country: Deutschland, postcode: 06918,
+- fields: {state: Sachsen, city: Elster, country: Deutschland, postcode: 06918,
     street: Oststraße , street_additional: '', street_number: 9}
   model: zeltlager_registration.address
   pk: 26
