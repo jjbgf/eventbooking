@@ -6,6 +6,15 @@ from localflavor.de.de_states import STATE_CHOICES
 GENDER_CHOICES = (('0', 'weiblich'), ('1', 'männlich'))
 SWIMMING_BADGE_CHOICES = (('Seepferdchen','Seepferdchen'),('Bronze','Deutsches Jugendschwimmabzeichen – Bronze'),('Silber','Deutsches Jugendschwimmabzeichen – Silber'),('Gold','Deutsches Jugendschwimmabzeichen – Gold'),('Rettungsschwimmabzeichen','Rettungsschwimmabzeichen'))
 ROLE_CHOICES = (('Jugendleiter', 'Jugendleiter'), ('Prediger', 'Prediger'), ('Hauptjugendleiter', 'Hauptjugendleiter'))
+TRANSPORTATION_CHOICES = (('KFZ_Eigen', 'Eigenes KFZ'),
+    ('KFZ_mitfahrt', 'Mitfahrer'),
+    ('BusSMH', 'Bus ab SMH'),
+    ('BusFS', 'Bus ab FS'),
+    ('Bahn', 'Bahn'),
+    ('Flugzeug', 'Flugzeug'),
+    ('zuFuss', 'zu Fuss'),
+    ('andere', 'andere'),
+    ('keine', 'keine'))
 
 class Address (models.Model):
     street = models.CharField(max_length=200)
@@ -93,7 +102,13 @@ class Participant(models.Model):
     preferred_work = models.TextField(blank=True)
     activities_i_liked = models.TextField(blank=True)
     things_i_can_provide = models.TextField(blank=True)
-    arrival_by = models.CharField(max_length=200)
+    
+    arrival = models.DateTimeField()
+    departure = models.DateTimeField()
+    transportationBegin = models.CharField(max_length=20, blank=False)
+    transportationBeginMethod = models.CharField(max_length=20, choices=TRANSPORTATION_CHOICES, default='keine')
+    transportationEnd = models.CharField(max_length=20, blank=False)
+    transportationEndMethod = models.CharField(max_length=20, choices=TRANSPORTATION_CHOICES, default='keine')
     
     class Meta:
         app_label = 'zeltlager_registration'

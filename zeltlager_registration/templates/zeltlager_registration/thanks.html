@@ -1,1 +1,35 @@
-<h1>thanks!</h>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>jjbgf - Registrierungsbestätigung</title>
+<!--[if IE]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+{# Load internationalization #}
+{% load i18n %}
+
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+</head>
+
+<body>
+<div id="header">
+</div>
+
+<div id="main" style="margin-left: auto; margin-right: auto; width: 40%;">
+<div class="alert alert-success" role="alert">{{ message }}</div>
+</div>
+
+<div id="footer">
+</div>
+
+</body>
+</html>

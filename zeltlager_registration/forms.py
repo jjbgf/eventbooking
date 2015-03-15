@@ -10,7 +10,7 @@ from zeltlager_registration.models import Participant, Address, Jugendgruppe
 import datetime
 from localflavor.de.forms import DEZipCodeField
 from django.core.exceptions import ValidationError
-from datetimewidget.widgets import DateWidget
+from datetimewidget.widgets import DateWidget, DateTimeWidget
 
 
 #class RegisterForm(ModelForm):
@@ -22,7 +22,7 @@ class ParticipantForm(ModelForm):
         # Overwrite model
         self.fields['jugendgruppe'] = forms.ModelChoiceField(queryset=Jugendgruppe.objects.all())
         self.fields['mail'] = forms.EmailField()
-        self.fields['birth_date'] = forms.DateField(required=True, initial=datetime.date.today())
+        #self.fields['birth_date'] = forms.DateField(required=True, initial=datetime.date.today())
         
         
     #def clean(self):
@@ -41,7 +41,9 @@ class ParticipantForm(ModelForm):
             'main_insurant_birthdate': DateWidget(attrs={'id':"main_insurant_birthdate"}, usel10n = True, bootstrap_version=3),
             'tetanus_immunization': DateWidget(attrs={'id':"tetanus_immunization"}, usel10n = True, bootstrap_version=3),
             'partial_start': DateWidget(attrs={'id':"partial_start"}, usel10n = True, bootstrap_version=3),
-            'partial_end': DateWidget(attrs={'id':"partial_end"}, usel10n = True, bootstrap_version=3)
+            'partial_end': DateWidget(attrs={'id':"partial_end"}, usel10n = True, bootstrap_version=3),
+            'arrival': DateTimeWidget(attrs={'id':"arrival"}, usel10n = True, bootstrap_version=3),
+            'departure': DateTimeWidget(attrs={'id':"departure"}, usel10n = True, bootstrap_version=3)
             }
     
 class AddressForm(ModelForm):

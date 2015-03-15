@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from zeltlager_registration.models import Address, Participant
 import logging
 from zeltlager_registration.forms import  ParticipantForm, AddressForm
@@ -18,34 +18,39 @@ def index(request):
 @require_http_methods(["POST"])
 def save(request):
     
-    #dirty dirty hack
-    addresss = Address()
-    addresss.id = None
+    #dirty hack
+    #see: https://djangosnippets.org/snippets/1248/
+    address = Address()
+    address.id = None
     
-    participantt = Participant()
-    participantt.id = None
+    participant = Participant()
+    participant.id = None
     
     # create a form instance and populate it with data from the request:
-    addressForm = AddressForm(request.POST, instance=addresss)
-    participantForm = ParticipantForm(request.POST, instance=participantt)
+    addressForm = AddressForm(request.POST, instance=address)
+    participantForm = ParticipantForm(request.POST, instance=participant)
     
     # check whether it's valid:
     logger.debug('is form valid: '+ str(addressForm.is_valid()))
         
-    #addressForm.clean()
+    if addressForm.is_valid() and participantForm.is_valid():
         
-    if addressForm.is_valid():
-            
+        # commit = false doesn't save to DB.
         address = addressForm.save(commit=False)
         address.save()
         participant = participantForm.save(commit=False)
         participant.address = address
         participant.save()
             
-            # process the data in form.cleaned_data as required
-        return render(request, 'zeltlager_registration/thanks.html')
+        # Always return an HttpResponseRedirect after successfully dealing
+        # with POST data. This prevents data from being posted twice if a
+        # user hits the Back button.
+        context = {'message': 'Vielen Dank.\nDeine Daten wurden erfolgreich gespeichert.'}
+        return render(request, 'zeltlager_registration/thanks.html', context)
 
-    return HttpResponse("validation errors found")
+    # Redisplay the form.
+    context = {'addressForm' : AddressForm(), 'participantForm' : ParticipantForm(), 'form_errors': "You didn't select a choice.",}
+    return render(request, 'zeltlager_registration/register.html', context)
 
 @require_http_methods(["GET"])
 def register (request):
