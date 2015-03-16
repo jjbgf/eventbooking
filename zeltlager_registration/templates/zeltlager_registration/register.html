@@ -1,6 +1,8 @@
 {# Load internationalization #}
 {% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 <!DOCTYPE html>
+<!-- Current language: {{ LANGUAGE_CODE }} -->
 <html>
 <head>
 <meta charset="utf-8" />
@@ -43,7 +45,7 @@
 	{% csrf_token %}
 	
 		<div class="input-group">
-			<h2>Persönliches</h2>
+			<h2>{% trans "personal data" %}</h2>
 			{% bootstrap_field participantForm.firstname %}
 			{% bootstrap_field participantForm.name %}
 			{% bootstrap_field participantForm.birth_date %}
@@ -60,12 +62,12 @@
 		</div>
 		
 		<div class="input-group">
-			<h4>Adresse</h4>
+			<h4>{% trans "address" %}</h4>
 			{% bootstrap_form addressForm %}
 		</div>
   
 	  	<div class="input-group">
-		  	<h2>Zeltlagerinfos</h2>
+		  	<h2>{% trans "zeltlager info" %}</h2>
 		    {% bootstrap_field participantForm.zeltlager_durchgang %}
 		    {% bootstrap_field participantForm.alternative_zeltlager_durchgang %}
 		    {% bootstrap_field participantForm.preferred_work %}
@@ -74,7 +76,7 @@
 		    {% bootstrap_field participantForm.skills %}
 		    {% bootstrap_field participantForm.allow_separation_in_groups %}
 		    {% bootstrap_field participantForm.additional_participants_same_household %}
-		    <h4>An- und Abreise</h4>
+		    <h4>{% trans "arrival and departure" %}</h4>
 		    {% bootstrap_field participantForm.partial_participant %}
 		    {% bootstrap_field participantForm.partial_start %}
 		    {% bootstrap_field participantForm.partial_end %}
@@ -87,7 +89,7 @@
 	    </div>
 	    
 	    <div class="input-group">
-		    <h2>Versicherungsdaten</h2>
+		    <h2>{% trans "insurance data" %}</h2>
 		    {% bootstrap_field participantForm.legal_guardian %}
 		    {% bootstrap_field participantForm.legal_guardian_phone_number %}
 		    {% bootstrap_field participantForm.legal_guardian_mobile_number %}
@@ -104,10 +106,10 @@
   	
   	{% buttons %}
     <button type="submit" class="btn btn-primary">
-      {% bootstrap_icon "ok" %} Absenden
+      {% bootstrap_icon "ok" %} {% trans "submit" %}
     </button>
     <button type="reset" class="btn btn-danger">
-      {% bootstrap_icon "trash" %} Zurücksetzen
+      {% bootstrap_icon "trash" %} {% trans "reset" %}
     </button>
   {% endbuttons %}
 </form>

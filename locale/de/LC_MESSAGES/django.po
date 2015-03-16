@@ -3,21 +3,364 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: jjbgf-eventbooking\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-11 22:07+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2015-03-16 23:52+0100\n"
+"PO-Revision-Date: 2015-03-16 23:53+0100\n"
+"Last-Translator: Daniel Stolpe <daniel.stolpe@gmx.de>\n"
+"Language-Team: jjbgf <daniel.stolpe@gmx.de>\n"
+"Language: de_de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 
-#: zeltlager_registration/templates/zeltlager_registration/register.html:14
+#: zeltlager_registration/models.py:7
+msgid "female"
+msgstr "weiblich"
+
+#: zeltlager_registration/models.py:7
+msgid "male"
+msgstr "männlich"
+
+#: zeltlager_registration/models.py:8
+msgid "seahorse"
+msgstr "Seepferdchen"
+
+#: zeltlager_registration/models.py:8
+msgid "bronze"
+msgstr "Bronze - Deutsches Jugendschwimmabzeichen"
+
+#: zeltlager_registration/models.py:8
+msgid "silver"
+msgstr "Silber - Deutsches Jugendschwimmabzeichen"
+
+#: zeltlager_registration/models.py:8
+msgid "gold"
+msgstr "Gold - Deutsches Jugendschwimmabzeichen"
+
+#: zeltlager_registration/models.py:8
+msgid "lifeguard"
+msgstr "Rettungsschwimmer"
+
+#: zeltlager_registration/models.py:9
+msgid "youth leader"
+msgstr "Jugendleiter"
+
+#: zeltlager_registration/models.py:9
+msgid "preacher"
+msgstr "Prediger"
+
+#: zeltlager_registration/models.py:9
+msgid "head youth leader"
+msgstr "Hauptjugendleiter"
+
+#: zeltlager_registration/models.py:10
+msgid "own car"
+msgstr "Eigenes Auto"
+
+#: zeltlager_registration/models.py:11
+msgid "car passenger"
+msgstr "Mitfahrer in anderem Auto"
+
+#: zeltlager_registration/models.py:12
+msgid "bus from SMH"
+msgstr "Bus ab SMH"
+
+#: zeltlager_registration/models.py:13
+msgid "bus from Friedensstadt"
+msgstr "Bus ab FS"
+
+#: zeltlager_registration/models.py:14
+msgid "train"
+msgstr "Zug"
+
+#: zeltlager_registration/models.py:15
+msgid "plane"
+msgstr "Flugzeug"
+
+#: zeltlager_registration/models.py:16
+msgid "walking"
+msgstr "zu Fuß"
+
+#: zeltlager_registration/models.py:17
+msgid "other"
+msgstr "andere"
+
+#: zeltlager_registration/models.py:18
+msgid "none"
+msgstr "keiner"
+
+#: zeltlager_registration/models.py:21
+msgid "street"
+msgstr "Straße"
+
+#: zeltlager_registration/models.py:22
+msgid "street additional"
+msgstr "Zusatz"
+
+#: zeltlager_registration/models.py:23
+msgid "street number"
+msgstr "Hausnummer"
+
+#: zeltlager_registration/models.py:24
+msgid "ZIP code"
+msgstr "Postleitzahl"
+
+#: zeltlager_registration/models.py:25
+msgid "city"
+msgstr "Stadt"
+
+#: zeltlager_registration/models.py:26
+msgid "state"
+msgstr "Bundesland"
+
+#: zeltlager_registration/models.py:27
+msgid "country"
+msgstr "Land"
+
+#: zeltlager_registration/models.py:31 zeltlager_registration/models.py:39
+#: zeltlager_registration/models.py:54 zeltlager_registration/models.py:72
+#: zeltlager_registration/models.py:92
+#: zeltlager_registration/templates/zeltlager_registration/register.html:65
+msgid "address"
+msgstr "Adresse"
+
+#: zeltlager_registration/models.py:32
+msgid "addresses"
+msgstr "Adressen"
+
+#: zeltlager_registration/models.py:40
+msgid "description"
+msgstr "Beschreibung"
+
+#: zeltlager_registration/models.py:48 zeltlager_registration/models.py:77
+msgid "youth group"
+msgstr "Jugendgruppe"
+
+#: zeltlager_registration/models.py:49
+msgid "youth groups"
+msgstr "Jugendgruppen"
+
+#: zeltlager_registration/models.py:52
+msgid "number"
+msgstr "Nummer"
+
+#: zeltlager_registration/models.py:55
+msgid "start"
+msgstr "Beginn"
+
+#: zeltlager_registration/models.py:56
+msgid "end"
+msgstr "Ende"
+
+#: zeltlager_registration/models.py:57
+msgid "capacity"
+msgstr "Max. Teilnehmerzahl"
+
+#: zeltlager_registration/models.py:58
+msgid "head"
+msgstr "Lagerleiter"
+
+#: zeltlager_registration/models.py:62 zeltlager_registration/models.py:71
+msgid "zeltlager pass"
+msgstr "Zeltlagerdurchgang"
+
+#: zeltlager_registration/models.py:63
+msgid "zeltlager passes"
+msgstr "Zeltlagerdurchgänge"
+
+#: zeltlager_registration/models.py:69
+msgid "sirname"
+msgstr "Nachname"
+
+#: zeltlager_registration/models.py:70
+msgid "firstname"
+msgstr "Vorname"
+
+#: zeltlager_registration/models.py:73 zeltlager_registration/models.py:86
+msgid "phone number"
+msgstr "Telefonnummer"
+
+#: zeltlager_registration/models.py:74 zeltlager_registration/models.py:87
+msgid "mobile number"
+msgstr "Handynummer"
+
+#: zeltlager_registration/models.py:75
+msgid "gender"
+msgstr "Geschlecht"
+
+#: zeltlager_registration/models.py:76
+msgid "position"
+msgstr "Amt"
+
+#: zeltlager_registration/models.py:78
+msgid "mail"
+msgstr "E-Mail"
+
+#: zeltlager_registration/models.py:79
+msgid "job"
+msgstr "Beruf"
+
+#: zeltlager_registration/models.py:80 zeltlager_registration/models.py:91
+msgid "birth date"
+msgstr "Geburtsdatum"
+
+#: zeltlager_registration/models.py:81
+msgid "birth place"
+msgstr "Geburtsort"
+
+#: zeltlager_registration/models.py:82
+msgid "vegetarian"
+msgstr "Vegetarier"
+
+#: zeltlager_registration/models.py:83
+msgid "restrictions"
+msgstr "Einschränkungen"
+
+#: zeltlager_registration/models.py:84
+msgid "skills"
+msgstr "Fähigkeiten"
+
+#: zeltlager_registration/models.py:85
+msgid "legal guardian"
+msgstr "Gesetzlicher Vertreter"
+
+#: zeltlager_registration/models.py:88
+msgid "insurance company"
+msgstr "Krankenversicherung"
+
+#: zeltlager_registration/models.py:89
+msgid "insurance number"
+msgstr "Krankenversicherungsnummer"
+
+#: zeltlager_registration/models.py:90
+msgid "main insurant"
+msgstr "Hauptversicherter"
+
+#: zeltlager_registration/models.py:93
+msgid "employer"
+msgstr "Arbeitgeber des Hauptversicherten"
+
+#: zeltlager_registration/models.py:94
+msgid "tetanus immunization"
+msgstr "Tetanusschutzimpfung"
+
+#: zeltlager_registration/models.py:95
+msgid "remmeber me about following medicine"
+msgstr "Ich möchte an die Einnahme folgender Medikamente erinnert werden"
+
+#: zeltlager_registration/models.py:96
+msgid "swimming badge"
+msgstr "Schwimmabzeichen"
+
+#: zeltlager_registration/models.py:97
+msgid "allow seperation in groups"
+msgstr ""
+"Ich gestatte meinem Kind sich eigenständig in Kleingruppen zu bewegen "
+"(Tagesfahrten usw.)"
+
+#: zeltlager_registration/models.py:98
+msgid "additional participants from same household"
+msgstr "Weitere Teilnehmer aus dem selben Haushalt"
+
+#: zeltlager_registration/models.py:99
+msgid "partial participant"
+msgstr "Ich kann nur einen bestimmten Zeitraum  am Zeltlager teilnehmen"
+
+#: zeltlager_registration/models.py:100
+msgid "partial start"
+msgstr "und zwar von"
+
+#: zeltlager_registration/models.py:101
+msgid "partial end"
+msgstr "bis"
+
+#: zeltlager_registration/models.py:102
+msgid "alternative zeltlager pass"
+msgstr "Bei Überfüllung würde ich auch folgenden Alternativdurchgang fahren"
+
+#: zeltlager_registration/models.py:103
+msgid "preferred work"
+msgstr "Lieblingsarbeiten"
+
+#: zeltlager_registration/models.py:104
+msgid "activities I liked"
+msgstr "Das mochte ich besonders auf den letzten Zeltlagern (Aktivitäten usw.)"
+
+#: zeltlager_registration/models.py:105
+msgid "things I can provide"
+msgstr ""
+"Das kann ich zum Zeltlager beisteuern (Arbeiten, Interessensgruppen, usw.)"
+
+#: zeltlager_registration/models.py:107
+msgid "arrival"
+msgstr "Ankunft"
+
+#: zeltlager_registration/models.py:108
+msgid "departure"
+msgstr "Abfahrt"
+
+#: zeltlager_registration/models.py:109
+msgid "depart from"
+msgstr "Abfahrt von"
+
+#: zeltlager_registration/models.py:110
+msgid "transportation outward method"
+msgstr "Hinfahrt mit"
+
+#: zeltlager_registration/models.py:111
+msgid "return to"
+msgstr "Rückfahrt nach"
+
+#: zeltlager_registration/models.py:112
+msgid "transportation return method"
+msgstr "Rückfahrt mit"
+
+#: zeltlager_registration/models.py:116
+msgid "participant"
+msgstr "Teilnehmer"
+
+#: zeltlager_registration/models.py:117
+msgid "participants"
+msgstr "Teilnehmer"
+
+#: zeltlager_registration/templates/zeltlager_registration/register.html:11
+#: zeltlager_registration/templates/zeltlager_registration/register.html:30
 msgid "Register for Zeltlager"
 msgstr "Registriere dich fürs Zeltlager"
+
+#: zeltlager_registration/templates/zeltlager_registration/register.html:48
+msgid "personal data"
+msgstr "Persönliche Angaben"
+
+#: zeltlager_registration/templates/zeltlager_registration/register.html:70
+#| msgid "zeltlager pass"
+msgid "zeltlager info"
+msgstr "Zeltlagerinformationen"
+
+#: zeltlager_registration/templates/zeltlager_registration/register.html:79
+#| msgid "departure"
+msgid "arrival and departure"
+msgstr "An- / Abreise"
+
+#: zeltlager_registration/templates/zeltlager_registration/register.html:92
+#| msgid "insurance company"
+msgid "insurance data"
+msgstr "Versicherungsdaten"
+
+#: zeltlager_registration/templates/zeltlager_registration/register.html:109
+msgid "submit"
+msgstr "Absenden"
+
+#: zeltlager_registration/templates/zeltlager_registration/register.html:112
+msgid "reset"
+msgstr "Zurücksetzen"
+
+#: zeltlager_registration/templates/zeltlager_registration/thanks.html:9
+msgid "registration confirmation"
+msgstr "Registrierungsbestätigung"
