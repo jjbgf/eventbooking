@@ -14,7 +14,7 @@
 <![endif]-->
 {# Load the tag library #}
 {% load bootstrap3 %}
-
+{% load honeypot %}
 {# Load CSS and JavaScript #}
 {% load staticfiles %}
 {% bootstrap_css %}
@@ -59,6 +59,7 @@
 			{% bootstrap_field participantForm.job %}
 			{% bootstrap_field participantForm.swimming_badge %}
 			{% bootstrap_field participantForm.vegetarian %}
+			{% render_honeypot_field "age" %}
 		</div>
 		
 		<div class="input-group">

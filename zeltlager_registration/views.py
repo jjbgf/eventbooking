@@ -2,6 +2,7 @@
 
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
+from honeypot.decorators import check_honeypot
 from zeltlager_registration.models import Address, Participant
 import logging
 from zeltlager_registration.forms import  ParticipantForm, AddressForm
@@ -16,6 +17,7 @@ def index(request):
     return render(request, 'zeltlager_registration/index.html', context)
 
 @require_http_methods(["POST"])
+@check_honeypot(field_name='age')
 def save(request):
     
     #dirty hack

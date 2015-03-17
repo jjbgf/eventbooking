@@ -25,12 +25,11 @@ class ParticipantForm(ModelForm):
         #self.fields['birth_date'] = forms.DateField(required=True, initial=datetime.date.today())
         
         
-    #def clean(self):
-     #   cleaned_data = super(RegisterForm, self).clean()
-      #  mail = cleaned_data.get("mail")
+    def clean(self):
+        super(ParticipantForm, self).clean()
         
-       # if not mail:
-        #    raise ValidationError("Keine E-Mail-Adresse angegeben")
+        if not self.fields['mail']:
+            raise ValidationError("Keine E-Mail-Adresse angegeben")
                
     class Meta:
         model = Participant
@@ -55,4 +54,3 @@ class AddressForm(ModelForm):
     class Meta:
         model = Address
         
-#RegisterFormSet = inlineformset_factory(Address, Participant)

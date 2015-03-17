@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'bootstrap3',
     'localflavor',
     'datetimewidget',
+    'honeypot',
 )
 
 MIDDLEWARE_CLASSES = (

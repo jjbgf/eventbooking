@@ -3,3 +3,4 @@ django-bootstrap3==5.1.1
 PyYAML==3.11
 django-localflavor==1.1
 django-datetime-widget==0.9.3
+django-honeypot==0.4.0
