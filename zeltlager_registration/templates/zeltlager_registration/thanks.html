@@ -1,7 +1,7 @@
 {# Load internationalization #}
 {% load i18n %}
 <!DOCTYPE html>
-<html>
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,6 +20,7 @@
 {# Load CSS and JavaScript #}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
+<link href="{{ STATIC_URL }}css/styles.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -27,8 +28,8 @@
 </div>
 
 <div id="main" style="margin-left: auto; margin-right: auto; width: 40%;">
-<div class="alert alert-success" role="alert">{{ message }}</div>
-</div>
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}</div>
 
 <div id="footer">
 </div>

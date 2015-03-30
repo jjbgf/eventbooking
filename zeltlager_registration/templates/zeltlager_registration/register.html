@@ -1,124 +1,142 @@
 {# Load internationalization #}
 {% load i18n %}
 {% get_current_language as LANGUAGE_CODE %}
+
 <!DOCTYPE html>
-<!-- Current language: {{ LANGUAGE_CODE }} -->
-<html>
+<html lang="{{ LANGUAGE_CODE }}">
 <head>
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>jjbgf - {% trans "Register for Zeltlager" %}</title>
-<!--[if IE]>
-<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-{# Load the tag library #}
-{% load bootstrap3 %}
-{% load honeypot %}
-{# Load CSS and JavaScript #}
-{% load staticfiles %}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
-<link href="{{ STATIC_URL }}bootstrap3/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css"/>
-<script src="{{ STATIC_URL }}bootstrap3/js/bootstrap-datetimepicker.min.js"></script>
-<script type="text/javascript" src="{{ STATIC_URL }}bootstrap3/js/locales/bootstrap-datetimepicker.de.js" charset="UTF-8"></script>
-{{ form.media }}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jjbgf - {% trans "Register for Zeltlager" %}</title>
+    <!--[if IE]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+    {# Load the tag library #}
+    {% load bootstrap3 %}
+    {% load honeypot %}
+    {# Load CSS and JavaScript #}
+    {% load staticfiles %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link href="{{ STATIC_URL }}bootstrap3/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
+    <script src="{{ STATIC_URL }}bootstrap3/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}bootstrap3/js/locales/bootstrap-datetimepicker.de.js" charset="UTF-8"></script>
+    <link href="{{ STATIC_URL }}css/styles.css" rel="stylesheet" type="text/css" />
+    {{ form.media }}
 </head>
 
 <body>
-<div id="header">
-<h1>{% trans "Register for Zeltlager" %}</h1>
-</div>
+    <div id="header">
+        <h1>{% trans "Register for Zeltlager" %}</h1>
+    </div>
 
-<div id="main" style="margin-left: auto; margin-right: auto; width: 40%;">
+    <div id="main">
 
-{# Display django.contrib.messages as Bootstrap alerts #}
-{% bootstrap_messages %}
+        {# Display a form #}
+        {% block content %}
+        {# Display django.contrib.messages as Bootstrap alerts #}
+		{% bootstrap_messages %}
 
-{# Display a form #}
-{% block content %}
+        <form action="{% url 'save' %}" method="post">
+            {% csrf_token %}
 
-{% bootstrap_form_errors addressForm %}
-{% bootstrap_form_errors participantForm %}
+            <ul class="nav nav-tabs">
+                <li class="nav active"><a href="#Persoenliches" data-toggle="tab">{% trans "personal data" %}</a>
+                </li>
+                <li class="nav"><a href="#{% trans "address" %}" data-toggle="tab">{% trans "address" %}</a>
+                </li>
+                <li class="nav"><a href="#{% trans "zeltlager info" %}" data-toggle="tab">{% trans "zeltlager info" %}</a>
+                </li>
+                <li class="nav"><a href="#{% trans "insurance data" %}" data-toggle="tab">{% trans "insurance data" %}</a>
+                </li>
+            </ul>
 
-<form action="{% url 'save' %}" method="post">
-	{% csrf_token %}
-	
-		<div class="input-group">
-			<h2>{% trans "personal data" %}</h2>
-			{% bootstrap_field participantForm.firstname %}
-			{% bootstrap_field participantForm.name %}
-			{% bootstrap_field participantForm.birth_date %}
-			{% bootstrap_field participantForm.birth_place %}
-			{% bootstrap_field participantForm.phone_number %}
-			{% bootstrap_field participantForm.mobile_number %}
-			{% bootstrap_field participantForm.mail %}
-			{% bootstrap_field participantForm.gender %}
-			{% bootstrap_field participantForm.position %}
-			{% bootstrap_field participantForm.jugendgruppe %}
-			{% bootstrap_field participantForm.job %}
-			{% bootstrap_field participantForm.swimming_badge %}
-			{% bootstrap_field participantForm.vegetarian %}
-			{% render_honeypot_field "age" %}
-		</div>
-		
-		<div class="input-group">
-			<h4>{% trans "address" %}</h4>
-			{% bootstrap_form addressForm %}
-		</div>
-  
-	  	<div class="input-group">
-		  	<h2>{% trans "zeltlager info" %}</h2>
-		    {% bootstrap_field participantForm.zeltlager_durchgang %}
-		    {% bootstrap_field participantForm.alternative_zeltlager_durchgang %}
-		    {% bootstrap_field participantForm.preferred_work %}
-		    {% bootstrap_field participantForm.activities_i_liked %}
-		    {% bootstrap_field participantForm.things_i_can_provide %}
-		    {% bootstrap_field participantForm.skills %}
-		    {% bootstrap_field participantForm.allow_separation_in_groups %}
-		    {% bootstrap_field participantForm.additional_participants_same_household %}
-		    <h4>{% trans "arrival and departure" %}</h4>
-		    {% bootstrap_field participantForm.partial_participant %}
-		    {% bootstrap_field participantForm.partial_start %}
-		    {% bootstrap_field participantForm.partial_end %}
-		    {% bootstrap_field participantForm.arrival %}
-		    {% bootstrap_field participantForm.departure %}
-		    {% bootstrap_field participantForm.transportationBegin %}
-		    {% bootstrap_field participantForm.transportationBeginMethod %}
-		    {% bootstrap_field participantForm.transportationEnd %}
-		    {% bootstrap_field participantForm.transportationEndMethod %}
-	    </div>
-	    
-	    <div class="input-group">
-		    <h2>{% trans "insurance data" %}</h2>
-		    {% bootstrap_field participantForm.legal_guardian %}
-		    {% bootstrap_field participantForm.legal_guardian_phone_number %}
-		    {% bootstrap_field participantForm.legal_guardian_mobile_number %}
-		    {% bootstrap_field participantForm.insurance_company %}
-		    {% bootstrap_field participantForm.insurance_number %}
-		    {% bootstrap_field participantForm.main_insurant %}
-		    {% bootstrap_field participantForm.main_insurant_birthdate %}
-		    {% bootstrap_field participantForm.main_insurant_address %}
-		    {% bootstrap_field participantForm.main_insurant_employer %}
-		    {% bootstrap_field participantForm.tetanus_immunization %}
-		    {% bootstrap_field participantForm.remember_me_about_medicine %}
-		    {% bootstrap_field participantForm.restrictions %}
-		</div>
-  	
-  	{% buttons %}
-    <button type="submit" class="btn btn-primary">
-      {% bootstrap_icon "ok" %} {% trans "submit" %}
-    </button>
-    <button type="reset" class="btn btn-danger">
-      {% bootstrap_icon "trash" %} {% trans "reset" %}
-    </button>
-  {% endbuttons %}
-</form>
-{% endblock %}
-</div>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="Persoenliches">
+                    <div class="input-group">
+                        {% bootstrap_field participantForm.firstname %}
+                        {% bootstrap_field participantForm.name %}
+                        {% bootstrap_field participantForm.birth_date %}
+                        {% bootstrap_field participantForm.birth_place %}
+                        {% bootstrap_field participantForm.phone_number %}
+                        {% bootstrap_field participantForm.mobile_number %}
+                        {% bootstrap_field participantForm.mail %}
+                        {% bootstrap_field participantForm.gender %}
+                        {% bootstrap_field participantForm.position %}
+                        {% bootstrap_field participantForm.jugendgruppe %}
+                        {% bootstrap_field participantForm.job %}
+                        {% bootstrap_field participantForm.swimming_badge %}
+                        {% bootstrap_field participantForm.vegetarian %}
+                        {% render_honeypot_field "age" %}
+                    </div>
+                </div>
 
-<div id="footer">
-</div>
+                <div class="tab-pane fade in" id="{% trans "address" %}">
+                    <div class="input-group">
+                        {% bootstrap_form addressForm %}
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="{% trans "zeltlager info" %}">
+                    <div class="input-group">
+                        {% bootstrap_field participantForm.zeltlager_durchgang %}
+                        {% bootstrap_field participantForm.alternative_zeltlager_durchgang %}
+                        {% bootstrap_field participantForm.preferred_work %}
+                        {% bootstrap_field participantForm.activities_i_liked %}
+                        {% bootstrap_field participantForm.things_i_can_provide %}
+                        {% bootstrap_field participantForm.skills %}
+                        {% bootstrap_field participantForm.allow_separation_in_groups %}
+                        {% bootstrap_field participantForm.additional_participants_same_household %}
+                        <h4>{% trans "arrival and departure" %}</h4>
+                        {% bootstrap_field participantForm.partial_participant %}
+                        {% bootstrap_field participantForm.partial_start %}
+                        {% bootstrap_field participantForm.partial_end %}
+                        {% bootstrap_field participantForm.arrival %}
+                        {% bootstrap_field participantForm.departure %}
+                        {% bootstrap_field participantForm.transportationBegin %}
+                        {% bootstrap_field participantForm.transportationBeginMethod %}
+                        {% bootstrap_field participantForm.transportationEnd %}
+                        {% bootstrap_field participantForm.transportationEndMethod %}
+                    </div>
+                </div>
+
+
+                <div class="tab-pane fade" id="{% trans "insurance data" %}">
+                    <div class="input-group">
+                        {% bootstrap_field participantForm.legal_guardian %}
+                        {% bootstrap_field participantForm.legal_guardian_phone_number %}
+                        {% bootstrap_field participantForm.legal_guardian_mobile_number %}
+                        {% bootstrap_field participantForm.insurance_company %}
+                        {% bootstrap_field participantForm.insurance_number %}
+                        {% bootstrap_field participantForm.main_insurant %}
+                        {% bootstrap_field participantForm.main_insurant_birthdate %}
+                        {% bootstrap_field participantForm.main_insurant_address %}
+                        {% bootstrap_field participantForm.main_insurant_employer %}
+                        {% bootstrap_field participantForm.tetanus_immunization %}
+                        {% bootstrap_field participantForm.remember_me_about_medicine %}
+                        {% bootstrap_field participantForm.restrictions %}
+                    </div>
+                </div>
+
+            </div>
+
+            {% buttons %}
+            <button type="submit" class="btn btn-primary">
+                {% bootstrap_icon "ok" %} {% trans "submit" %}
+            </button>
+            <button type="reset" class="btn btn-danger">
+                {% bootstrap_icon "trash" %} {% trans "reset" %}
+            </button>
+            {% endbuttons %}
+        </form>
+        {% endblock %}
+    </div>
+
+    <div id="footer">
+    </div>
 
 </body>
+
 </html>

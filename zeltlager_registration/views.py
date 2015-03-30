@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import  HttpResponseRedirect
+from django.contrib import messages
 from honeypot.decorators import check_honeypot
 from zeltlager_registration.models import Address, Participant
 import logging
@@ -9,7 +10,7 @@ from zeltlager_registration.forms import  ParticipantForm, AddressForm
 from django.views.decorators.http import require_http_methods
 
 # Get an instance of a logger
-logger = logging.getLogger('zeltlager_registration')
+logger = logging.getLogger(__name__)
 
 @require_http_methods(["GET"])
 def index(request):
@@ -33,7 +34,7 @@ def save(request):
     participantForm = ParticipantForm(request.POST, instance=participant)
     
     # check whether it's valid:
-    logger.debug('is form valid: '+ str(addressForm.is_valid()))
+    logger.debug('forms valid: '+ str(addressForm.is_valid() + participantForm.is_valid()))
         
     if addressForm.is_valid() and participantForm.is_valid():
         
@@ -47,12 +48,12 @@ def save(request):
         # Always return an HttpResponseRedirect after successfully dealing
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
-        context = {'message': 'Vielen Dank.\nDeine Daten wurden erfolgreich gespeichert.'}
-        return render(request, 'zeltlager_registration/thanks.html', context)
+        messages.success(request, 'Vielen Dank.\nDeine Daten wurden erfolgreich gespeichert.')
+        return HttpResponseRedirect('/zeltlager/thanks/')
 
     # Redisplay the form.
-    context = {'addressForm' : AddressForm(), 'participantForm' : ParticipantForm(), 'form_errors': "You didn't select a choice.",}
-    return render(request, 'zeltlager_registration/register.html', context)
+    messages.error(request, 'Bitte fülle alle Felder aus!')
+    return HttpResponseRedirect('/zeltlager/register/')
 
 @require_http_methods(["GET"])
 def register (request):

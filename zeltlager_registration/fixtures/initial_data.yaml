@@ -284,25 +284,25 @@ Wir sind eine von zwei Jugendgemeinschaften in der Johannischen Jugend. Im Gegen
   model: zeltlager_registration.address
   pk: 26
 
-- fields: {address: 26, description: "-", name: Witenberg - Elster}
+- fields: {address: 26, description: "-", name: Wittenberg - Elster}
   model: zeltlager_registration.jugendgruppe
   pk: 28
   
   
 #zeltlager
 
-- fields: {address: 10, name: "1. Zeltlager Gut Schönhof", start: '2015-07-25 15:00', end: '2015-08-07 11:00', capacity: 40, lagerleiter: "-"}
+- fields: {address: 10, name: "1. Zeltlager Gut Schönhof", start: '2015-07-25T15:00+00:00', end: '2015-08-07T11:00+00:00', capacity: 40, lagerleiter: "-"}
   model: zeltlager_registration.ZeltlagerDurchgang
   pk: 1
 
-- fields: {address: 17, name: "3. Zeltlager Friedensstadt", start: '2015-07-25 15:00', end: '2015-08-07 11:00', capacity: 40, lagerleiter: "-"}
+- fields: {address: 17, name: "3. Zeltlager Friedensstadt", start: '2015-07-25T15:00+00:00', end: '2015-08-07T11:00+00:00', capacity: 40, lagerleiter: "-"}
   model: zeltlager_registration.ZeltlagerDurchgang
   pk: 2
   
-- fields: {address: 10, name: "2. Zeltlager Gut Schönhof", start: '2015-08-07 15:00', end: '2015-08-20 11:00', capacity: 40, lagerleiter: "-"}
+- fields: {address: 10, name: "2. Zeltlager Gut Schönhof", start: '2015-08-07T15:00+00:00', end: '2015-08-20T11:00+00:00', capacity: 40, lagerleiter: "-"}
   model: zeltlager_registration.ZeltlagerDurchgang
   pk: 3
   
-- fields: {address: 17, name: "4. Zeltlager Gut Friedensstadt", start: '2015-08-07 15:00', end: '2015-08-20 11:00', capacity: 40, lagerleiter: "-"}
+- fields: {address: 17, name: "4. Zeltlager Gut Friedensstadt", start: '2015-08-07T15:00+00:00', end: '2015-08-20T11:00+00:00', capacity: 40, lagerleiter: "-"}
   model: zeltlager_registration.ZeltlagerDurchgang
   pk: 4

@@ -47,7 +47,7 @@ BOOTSTRAP3 = {
     'horizontal_field_class': 'col-md-4',
 
     # Set HTML required attribute on required fields
-    'set_required': True,
+    'set_required': False,
 
     # Set placeholder attributes to label if no placeholder is provided
     'set_placeholder': False,
@@ -88,6 +88,14 @@ LOGGING = {
             'handlers': ['console'],
             'level': 'DEBUG',
             'propagate': True,
+        },
+        'django': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
+        },
+        'zeltlager_registration': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
         },
     },
 }
