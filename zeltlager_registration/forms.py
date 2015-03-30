@@ -23,7 +23,7 @@ class ParticipantForm(ModelForm):
         self.fields['jugendgruppe'] = forms.ModelChoiceField(queryset=Jugendgruppe.objects.all())
         self.fields['mail'] = forms.EmailField()
         #self.fields['birth_date'] = forms.DateField(required=True, initial=datetime.date.today())
-        
+        self.fields['dataCollectionAgreement'] = forms.BooleanField(required = True, label="Ich stimme der Uebermittlung und Verarbeitung meiner Daten zu")
         
     def clean(self):
         super(ParticipantForm, self).clean()
