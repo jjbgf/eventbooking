@@ -12,6 +12,12 @@ https://www.python.org/downloads/release/python-279/
 ## Dependencies installation
 * pip install -r requirements/requirements-base.txt
 
+## Run app in development mode
+* python manage.py runserver
+
+## Run app in development mode with different port
+* python manage.py runserver _portnumber_
+
 ## Django Documentation
 https://docs.djangoproject.com/en/1.7/
 
